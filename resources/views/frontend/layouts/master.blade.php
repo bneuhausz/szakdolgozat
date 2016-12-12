@@ -12,11 +12,10 @@
         </script>
     </head>
     <body>
-        @include('frontend.partials.header')
+        @include('partials.header')
         <div class="container">
             @yield('content')
         </div>
-        <script src="{{ URL::to('js/app.js') }}"></script>
         <script src="{{ URL::to('js/jquery-3.1.1.js') }}"></script>
         <script src="{{ URL::to('css/bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>
         @yield('scripts')
