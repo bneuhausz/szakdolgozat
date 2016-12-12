@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
+Route::post('/language', [
+    'Middleware' => 'LanguageSwitcher',
+    'uses' => 'Lang\LanguageController@index',
+    'as' => 'language'
+]);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
