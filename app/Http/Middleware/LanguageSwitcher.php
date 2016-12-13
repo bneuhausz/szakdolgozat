@@ -23,7 +23,9 @@ class LanguageSwitcher
         $language=Config::get('app.locale');
         if(Auth::check()){
             $language = Auth::user()->language;
-            Session::forget('locale');
+            if (Session::has('locale')) {
+                Session::forget('locale');
+            }
         }
         App::setLocale(Session::has('locale') ? Session::get('locale') : $language);
         return $next($request);

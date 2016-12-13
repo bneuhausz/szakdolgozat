@@ -17,8 +17,8 @@ class LanguageController extends Controller
             $user->language = $request['locale'];
             $user->update();
         }else{
-            if(!\Session::has('locale')){
-                \Session::put('locale', Input::get('locale'));
+            if(!Session::has('locale')){
+                Session::put('locale', Input::get('locale'));
             }else{
                 Session::set('locale', Input::get('locale'));
             }

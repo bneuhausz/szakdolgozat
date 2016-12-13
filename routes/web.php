@@ -16,11 +16,9 @@ Route::get('/', function () {
 });
 
 Route::post('/language', [
-    'Middleware' => 'LanguageSwitcher',
+    //'Middleware' => 'LanguageSwitcher',
     'uses' => 'Lang\LanguageController@index',
     'as' => 'language'
 ]);
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index');
