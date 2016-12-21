@@ -8,5 +8,7 @@
 		'submit' => 'Elküldés',
 		'forgottenPassword' => 'Elfelejtetted a jelszavad?',
 		'resetPassword' => 'Jelszó Visszaállítás',
-		'sendResetLink' => 'Jelszó Visszaállító Link Elküldése'
+		'sendResetLink' => 'Jelszó Visszaállító Link Elküldése',
+		'regards' => 'Üdvözlettel',
+		'rightsReserved' => 'Minden jog fenntartva.',
 ];

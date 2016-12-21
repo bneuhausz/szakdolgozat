@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Config;
 
 class RegisterController extends Controller
 {
@@ -70,17 +71,23 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'language' => Config::get('app.locale'),
         ]);
     }
 
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
-
         event(new Registered($user = $this->create($request->all())));
-
         Mail::to($user->email)->send(new ConfirmationEmail($user));
 
-        return back()->with('status', 'Please confirm your email address.');
+        return back()->with('status', trans('user.confirmEmail'));
+    }
+
+    public function confirmEmail($verificationToken){
+        User::where('verificationToken', $verificationToken)->firstOrFail()->hasVerified();
+
+
+        return redirect('login')->with('status', trans('user.emailConfirmed'));
     }
 }

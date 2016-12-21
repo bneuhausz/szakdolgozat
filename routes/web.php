@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::post('/language', [
-    //'Middleware' => 'LanguageSwitcher',
+    'Middleware' => 'LanguageSwitcher',
     'uses' => 'Lang\LanguageController@index',
     'as' => 'language'
 ]);

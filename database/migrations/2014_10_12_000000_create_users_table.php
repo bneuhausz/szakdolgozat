@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('verified')->default('0');
             $table->string('verificationToken')->nullable();
-            $table->string('language')->default('hu');
+            $table->string('language');
             $table->boolean('admin')->default('0');
             $table->rememberToken();
             $table->timestamps();

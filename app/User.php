@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'language',
     ];
 
     /**
@@ -32,5 +32,11 @@ class User extends Authenticatable
         static::creating(function ($user){
             $user->verificationToken = str_random(40);
         });
+    }
+
+    public function hasVerified(){
+        $this->verified = true;
+        $this->verificationToken = null;
+        $this->save();
     }
 }
