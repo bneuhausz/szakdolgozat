@@ -21,7 +21,9 @@
                 <ul class="nav navbar-nav">
                     <li><a href="#">asd</a></li>
                     <li><a href="#">asd</a></li>
-                    <li><a href="#">asd</a></li>
+                    @if (Auth::check() && Auth::user()->admin == true)
+                        <li><a href="{{ route('admin.index') }}">{{ trans('header.adminPanel') }}</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->

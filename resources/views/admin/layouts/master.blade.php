@@ -8,14 +8,9 @@
         <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ URL::to('css/bootstrap.min.css') }}">
         @yield('styles')
-        <script>
-            window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-            ]); ?>
-        </script>
     </head>
     <body>
-        @include('frontend.partials.header')
+        @include('admin.partials.header')
         <div class="container">
             @yield('content')
         </div>

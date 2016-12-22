@@ -11,6 +11,5 @@
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                 @endif
             </form>
-            {{ trans('auth.failed') }}
         </nav>
 </footer>

@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [function () {
     return view('frontend.index');
-});
+}]);
 
 Route::post('/language', [
     'Middleware' => 'LanguageSwitcher',
@@ -22,3 +22,9 @@ Route::post('/language', [
 ]);
 
 Auth::routes();
+
+Route::get('/admin', [
+    'middleware' => 'auth.admin',
+    'uses' => 'AdminController@getIndex',
+    'as' => 'admin.index'
+]);
