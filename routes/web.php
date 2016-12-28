@@ -23,8 +23,27 @@ Route::post('/language', [
 
 Auth::routes();
 
-Route::get('/admin', [
-    'middleware' => 'auth.admin',
-    'uses' => 'AdminController@getIndex',
-    'as' => 'admin.index'
-]);
+Route::group([
+    'prefix' => '/admin',
+    'middleware' => 'auth.admin'
+], function(){
+    Route::get('/', [
+        'uses' => 'AdminController@getIndex',
+        'as' => 'admin.index'
+    ]);
+
+    Route::get('/users', [
+        'uses' => 'AdminController@getUsers',
+        'as' => 'admin.users'
+    ]);
+
+    Route::get('/admin/user/{userId}', [
+        'uses' => 'AdminController@getUser',
+        'as' => 'admin.user'
+    ]);
+
+    Route::post('/users/search', [
+        'uses' => 'AdminController@postUserSearchResults',
+        'as' => 'admin.user.search'
+    ]);
+});

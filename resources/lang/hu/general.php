@@ -11,4 +11,10 @@
 		'sendResetLink' => 'Jelszó Visszaállító Link Elküldése',
 		'regards' => 'Üdvözlettel',
 		'rightsReserved' => 'Minden jog fenntartva.',
+		'users' => 'Felhasználók',
+		'userList' => 'Felhasználó lista',
+		'bannedUsers' => 'Eltiltott felhasználók',
+		'previousPage' => 'Előző oldal',
+		'nextPage' => 'Következő oldal',
+		'search' => 'Keresés',
 ];

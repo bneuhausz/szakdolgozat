@@ -7,6 +7,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ URL::to('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::to('css/main.css') }}">
+        <link rel="stylesheet" href="{{ URL::to('css/header.css') }}">
         @yield('styles')
         <script>
             window.Laravel = <?php echo json_encode([

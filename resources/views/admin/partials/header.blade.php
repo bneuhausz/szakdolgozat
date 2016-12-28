@@ -11,15 +11,24 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                Home
+            <a class="navbar-brand" id="logo" href="{{ url('/admin') }}">
+                b
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="#">asd</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ trans('general.users') }} <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/admin/users') }}">{{ trans('general.userList') }}</a></li>
+                        <li><a href="#">{{ trans('general.bannedUsers') }}</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">asd</a></li>
                 <li><a href="{{ url('/') }}">{{ trans('header.userPanel') }}</a></li>
             </ul>
