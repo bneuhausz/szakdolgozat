@@ -5,7 +5,7 @@
 @endsection
 
 @section('styles')
-    <link rel="stylesheet" href="{{ URL::to('css/userList.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('css/list.css') }}">
 @endsection
 
 @section('content')
@@ -17,7 +17,7 @@
         <div id="searchBox">
             <form action="{{ route('admin.user.search') }}" method="post">
                 <div class="input-group">
-                    <label for="name">Username</label>
+                    <label for="name">{{ trans('user.name') }}</label>
                     <input type="text" name="name">
                     <button type="submit" class="btn btn-default btn-xs">{{ trans('general.search' ) }}</button>
                 </div>
@@ -26,7 +26,7 @@
             </form>
         </div>
 
-        <div id="userList">
+        <div id="list">
             <ul>
                 @foreach ($users as $user)
                     <li>

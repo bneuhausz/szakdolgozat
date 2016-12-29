@@ -70,5 +70,95 @@ class UserTableSeeder extends Seeder
         $user->language = "hu";
         $user->admin = "0";
         $user->save();
+
+        $user = new \App\User();
+        $user->name = "user6";
+        $user->email = "user6@bneuhausz.com";
+        $user->password = bcrypt('v9gm2c3j');
+        $user->verified = "1";
+        $user->verificationToken = null;
+        $user->language = "hu";
+        $user->admin = "0";
+        $user->save();
+
+        $user = new \App\User();
+        $user->name = "user7";
+        $user->email = "user7@bneuhausz.com";
+        $user->password = bcrypt('v9gm2c3j');
+        $user->verified = "1";
+        $user->verificationToken = null;
+        $user->language = "hu";
+        $user->admin = "0";
+        $user->save();
+
+        $user = new \App\User();
+        $user->name = "user8";
+        $user->email = "user8@bneuhausz.com";
+        $user->password = bcrypt('v9gm2c3j');
+        $user->verified = "1";
+        $user->verificationToken = null;
+        $user->language = "hu";
+        $user->admin = "0";
+        $user->save();
+
+        $user = new \App\User();
+        $user->name = "user9";
+        $user->email = "user9@bneuhausz.com";
+        $user->password = bcrypt('v9gm2c3j');
+        $user->verified = "1";
+        $user->verificationToken = null;
+        $user->language = "hu";
+        $user->admin = "0";
+        $user->save();
+
+        $user = new \App\User();
+        $user->name = "user10";
+        $user->email = "user10@bneuhausz.com";
+        $user->password = bcrypt('v9gm2c3j');
+        $user->verified = "1";
+        $user->verificationToken = null;
+        $user->language = "hu";
+        $user->admin = "0";
+        $user->save();
+
+        $user = new \App\User();
+        $user->name = "user11";
+        $user->email = "user11@bneuhausz.com";
+        $user->password = bcrypt('v9gm2c3j');
+        $user->verified = "1";
+        $user->verificationToken = null;
+        $user->language = "hu";
+        $user->admin = "0";
+        $user->save();
+
+        $user = new \App\User();
+        $user->name = "user12";
+        $user->email = "user12@bneuhausz.com";
+        $user->password = bcrypt('v9gm2c3j');
+        $user->verified = "1";
+        $user->verificationToken = null;
+        $user->language = "hu";
+        $user->admin = "0";
+        $user->save();
+
+        $user = new \App\User();
+        $user->name = "user13";
+        $user->email = "user13@bneuhausz.com";
+        $user->password = bcrypt('v9gm2c3j');
+        $user->verified = "1";
+        $user->verificationToken = null;
+        $user->language = "hu";
+        $user->admin = "0";
+        $user->save();
+
+        $user = new \App\User();
+        $user->name = "user14";
+        $user->email = "user14@bneuhausz.com";
+        $user->password = bcrypt('v9gm2c3j');
+        $user->verified = "1";
+        $user->verificationToken = null;
+        $user->language = "hu";
+        $user->admin = "0";
+        $user->save();
     }
 }

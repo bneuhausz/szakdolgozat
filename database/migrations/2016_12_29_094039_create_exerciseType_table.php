@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBansTable extends Migration
+class CreateExerciseTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateBansTable extends Migration
      */
     public function up()
     {
-        Schema::create('bans', function (Blueprint $table) {
+        Schema::create('exercise_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('admin_id');
-            $table->dateTime('end_date');
-            $table->text('reason');
+            $table->string('name_en');
+            $table->string('name_hu');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateBansTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('exercise_types');
     }
 }

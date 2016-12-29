@@ -46,4 +46,39 @@ Route::group([
         'uses' => 'AdminController@postUserSearchResults',
         'as' => 'admin.user.search'
     ]);
+
+    Route::get('/exercises', [
+        'uses' => 'AdminController@getExercises',
+        'as' => 'admin.exercises'
+    ]);
+
+    Route::get('/exercise/add', [
+        'uses' => 'AdminController@getAddExercise',
+        'as' => 'admin.exercise.add'
+    ]);
+
+    Route::post('/exercise/add', [
+        'uses' => 'AdminController@postAddExercise',
+        'as' => 'admin.exercise.add'
+    ]);
+
+    Route::post('/exercise/search', [
+        'uses' => 'AdminController@postExerciseSearchResults',
+        'as' => 'admin.exercise.search'
+    ]);
+
+    Route::get('/exercise/delete/{id}', [
+        'uses' => 'AdminController@getDeleteExercise',
+        'as' => 'admin.exercise.delete'
+    ]);
+
+    Route::get('/exercise/edit/{id}', [
+        'uses' => 'AdminController@getEditExercise',
+        'as' => 'admin.exercise.edit'
+    ]);
+
+    Route::post('/exercise/update', [
+        'uses' => 'AdminController@postUpdateExercise',
+        'as' => 'admin.exercise.update'
+    ]);
 });

@@ -12,10 +12,14 @@
 		'regards' => 'Regards',
 		'rightsReserved' => 'All rights reserved.',
 		'users' => 'Users',
-		'userList' => 'User list',
-		'bannedUsers' => 'Banned users',
 		'previousPage' => 'Previous page',
 		'nextPage' => 'Next page',
 		'search' => 'Search',
+		'notFound' => 'not found',
+		'exercises' => 'Exercises',
+		'exercise' => 'Exercise',
+		'delete' => 'Delete',
+		'edit' => 'Edit',
+		'cancel' => 'Cancel',
 
 ];
