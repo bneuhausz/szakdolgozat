@@ -21,5 +21,6 @@
 		'delete' => 'Delete',
 		'edit' => 'Edit',
 		'cancel' => 'Cancel',
+		'submit' => 'Submit',
 
 ];

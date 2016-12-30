@@ -21,4 +21,5 @@
 		'delete' => 'Törlés',
 		'edit' => 'Módosít',
 		'cancel' => 'Mégse',
+		'submit' => 'Küldés',
 ];

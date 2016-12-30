@@ -11,7 +11,7 @@
 @section('content')
     <div class="col-md-6 col-md-offset-3">
         <h1>
-            {{ trans('general.userList') }}
+            {{ trans('header.userList') }}
         </h1>
 
         <div id="searchBox">

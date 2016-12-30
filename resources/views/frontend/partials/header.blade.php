@@ -20,10 +20,8 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="#">asd</a></li>
-                    <li><a href="#">asd</a></li>
-                    @if (Auth::check() && Auth::user()->admin == true)
-                        <li><a href="{{ route('admin.index') }}">{{ trans('header.adminPanel') }}</a></li>
-                    @endif
+                    <li><a href="{{ route('contact') }}">{{ trans('header.contact') }}</a></li>
+                    
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -33,12 +31,16 @@
                         <li><a href="{{ url('/login') }}">{{ trans('general.login') }}</a></li>
                         <li><a href="{{ url('/register') }}">{{ trans('general.register') }}</a></li>
                     @else
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
-
+                            
                             <ul class="dropdown-menu" role="menu">
+                                @if (Auth::check() && Auth::user()->admin == true)
+                                    <li><a href="{{ route('admin.index') }}">{{ trans('header.adminPanel') }}</a></li>
+                                @endif
                                 <li>
                                     <a href="{{ url('/logout') }}"
                                         onclick="event.preventDefault();

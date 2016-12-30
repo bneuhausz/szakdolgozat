@@ -9,5 +9,11 @@ return [
     'passwordResetEmailLine1' => 'Azért kaptad ezt az emailt, mert érkezett hozzánk egy jelszó visszaállító kérelem az accountodról.',
     'passwordResetEmailLine2' => 'Ha nem te küldted a kérelmet, hagyd figyelmen kívül ezt az emailt.',
     'footerTrouble' => 'Ha valamiért nem tudsz rákattintani a gombra, másold az alábbi URL-t a böngésző címsorába.',
+    'contact' => 'Kapcsolat',
+    'subject' => 'Téma',
+    'message' => 'Üzenet',
+    'receivedMessage' => 'Megkaptuk az üzeneted!',
+    'response' => 'Köszönjük. Amint lehet, válaszolunk.',
+    'newMessage' => 'Új üzenet érkezett!',
 
 ];

@@ -6,4 +6,5 @@
 		'userList' => 'Felhasználó Lista',
 		'addExercise' => 'Gyakorlat Felvitel',
 		'exercises' => 'Gyakorlatok',
+		'contact' => 'Kapcsolat',
     ];

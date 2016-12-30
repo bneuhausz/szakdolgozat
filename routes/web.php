@@ -21,6 +21,16 @@ Route::post('/language', [
     'as' => 'language'
 ]);
 
+Route::get('/contact', [
+    'uses' => 'ContactMessageController@getContactIndex',
+    'as' => 'contact'
+]);
+
+Route::post('/contact/sendmail', [
+    'uses' => 'ContactMessageController@postSendMessage',
+    'as' => 'contact.send'
+]);
+
 Auth::routes();
 
 Route::group([

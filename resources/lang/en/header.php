@@ -6,4 +6,5 @@
 		'userList' => 'User List',
 		'addExercise' => 'Add Exercise',
 		'exercises' => 'Exercises',
+		'contact' => 'Contact',
     ];
