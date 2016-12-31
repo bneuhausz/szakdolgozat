@@ -13,7 +13,8 @@ return [
     'subject' => 'Téma',
     'message' => 'Üzenet',
     'receivedMessage' => 'Megkaptuk az üzeneted!',
-    'response' => 'Köszönjük. Amint lehet, válaszolunk.',
+    'response' => 'Köszönjük.',
     'newMessage' => 'Új üzenet érkezett!',
+    'mailSent' => 'Sikeresen elküldve!',
 
 ];

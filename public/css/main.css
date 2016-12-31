@@ -43,3 +43,12 @@
     background-color: #e2ffd9;
     color: green;
 }
+
+.new-post {
+    padding: 16px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.new-post header{
+    margin-bottom: 20px;
+}

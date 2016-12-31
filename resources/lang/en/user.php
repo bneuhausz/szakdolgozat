@@ -8,4 +8,8 @@
 		'register' => 'Register',
 		'confirmEmail' => 'Please confirm your email!',
 		'emailConfirmed' => 'You confirmed your email, please log in!',
+		'profile' => 'Profile',
+		'makeAdmin' => 'Make User Admin',
+		'loseAdmin' => 'Take Away Admin Privileges',
+		'uploadPicture' => 'Upload Picture',
 ];

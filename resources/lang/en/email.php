@@ -13,7 +13,8 @@ return [
     'subject' => 'Subject',
     'message' => 'Message',
     'receivedMessage' => 'We received your message!',
-    'response' => 'Thank You! We will respond as soon as possible.',
+    'response' => 'Thank You!',
     'newMessage' => 'A new message arrived!',
+    'mailSent' => 'Mail successfully sent!',
 
 ];

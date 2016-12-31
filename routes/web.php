@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', [function () {
-    return view('frontend.index');
-}]);
+Route::get('/', [
+    'uses' => 'IndexController@getIndex',
+    'as' => 'index'
+]);
 
 Route::post('/language', [
     'Middleware' => 'LanguageSwitcher',
@@ -31,6 +32,30 @@ Route::post('/contact/sendmail', [
     'as' => 'contact.send'
 ]);
 
+Route::group([
+    'middleware' => 'auth'
+], function(){
+    Route::get('/profile', [
+        'uses' => 'UserController@getProfile',
+        'as' => 'profile'
+    ]);
+
+    Route::get('/picture/upload', [
+        'uses' => 'UserController@getUploadPicture',
+        'as' => 'picture.upload'
+    ]);
+
+    Route::post('/picture/upload', [
+        'uses' => 'UserController@postUploadPicture',
+        'as' => 'picture.upload'
+    ]);
+
+    Route::get('/picture/{filename}', [
+        'uses' => 'UserController@GetUserImage',
+        'as' => 'profile.image'
+    ]);
+});
+
 Auth::routes();
 
 Route::group([
@@ -38,57 +63,127 @@ Route::group([
     'middleware' => 'auth.admin'
 ], function(){
     Route::get('/', [
-        'uses' => 'AdminController@getIndex',
+        'uses' => 'Admin\AdminController@getIndex',
         'as' => 'admin.index'
     ]);
 
+    Route::get('/user/getAdmin/{id}', [
+        'uses' => 'Admin\UserController@getGetAdmin',
+        'as' => 'admin.getAdmin'
+    ]);
+
+    Route::get('/user/loseAdmin/{id}', [
+        'uses' => 'Admin\UserController@getLoseAdmin',
+        'as' => 'admin.loseAdmin'
+    ]);
+
     Route::get('/users', [
-        'uses' => 'AdminController@getUsers',
+        'uses' => 'Admin\UserController@getUsers',
         'as' => 'admin.users'
     ]);
 
-    Route::get('/admin/user/{userId}', [
-        'uses' => 'AdminController@getUser',
+    Route::get('/user/{userId}', [
+        'uses' => 'Admin\UserController@getUser',
         'as' => 'admin.user'
     ]);
 
     Route::post('/users/search', [
-        'uses' => 'AdminController@postUserSearchResults',
+        'uses' => 'Admin\UserController@postUserSearchResults',
         'as' => 'admin.user.search'
     ]);
 
     Route::get('/exercises', [
-        'uses' => 'AdminController@getExercises',
+        'uses' => 'Admin\ExerciseController@getExercises',
         'as' => 'admin.exercises'
     ]);
 
     Route::get('/exercise/add', [
-        'uses' => 'AdminController@getAddExercise',
+        'uses' => 'Admin\ExerciseController@getAddExercise',
         'as' => 'admin.exercise.add'
     ]);
 
     Route::post('/exercise/add', [
-        'uses' => 'AdminController@postAddExercise',
+        'uses' => 'Admin\ExerciseController@postAddExercise',
         'as' => 'admin.exercise.add'
     ]);
 
     Route::post('/exercise/search', [
-        'uses' => 'AdminController@postExerciseSearchResults',
+        'uses' => 'Admin\ExerciseController@postExerciseSearchResults',
         'as' => 'admin.exercise.search'
     ]);
 
     Route::get('/exercise/delete/{id}', [
-        'uses' => 'AdminController@getDeleteExercise',
+        'uses' => 'Admin\ExerciseController@getDeleteExercise',
         'as' => 'admin.exercise.delete'
     ]);
 
     Route::get('/exercise/edit/{id}', [
-        'uses' => 'AdminController@getEditExercise',
+        'uses' => 'Admin\ExerciseController@getEditExercise',
         'as' => 'admin.exercise.edit'
     ]);
 
     Route::post('/exercise/update', [
-        'uses' => 'AdminController@postUpdateExercise',
+        'uses' => 'ExerciseController@postUpdateExercise',
         'as' => 'admin.exercise.update'
+    ]);
+
+    Route::get('/articles', [
+        'uses' => 'Admin\ArticleController@getArticles',
+        'as' => 'admin.articles'
+    ]); 
+
+    Route::post('/articles/search', [
+        'uses' => 'Admin\ArticleController@postArticleSearchResults',
+        'as' => 'admin.article.search'
+    ]);
+
+    Route::get('/article/add', [
+        'uses' => 'Admin\ArticleController@getAddArticle',
+        'as' => 'admin.article.add'
+    ]);
+
+    Route::post('/article/add', [
+        'uses' => 'Admin\ArticleController@postAddArticle',
+        'as' => 'admin.article.add'
+    ]);
+
+    Route::get('/article/edit/{id}', [
+        'uses' => 'Admin\ArticleController@getEditArticle',
+        'as' => 'admin.article.edit'
+    ]);
+
+    Route::post('/article/update', [
+        'uses' => 'Admin\ArticleController@postUpdateArticle',
+        'as' => 'admin.article.update'
+    ]);
+
+    Route::get('/article/delete/{id}', [
+        'uses' => 'Admin\ArticleController@getDeleteArticle',
+        'as' => 'admin.article.delete'
+    ]);
+
+    Route::get('/article/{articleId}', [
+        'uses' => 'Admin\ArticleController@getArticle',
+        'as' => 'admin.article'
+    ]);
+
+    Route::get('/messages', [
+        'uses' => 'Admin\ContactMessageController@getMessages',
+        'as' => 'admin.messages'
+    ]); 
+
+    Route::post('/messages/search', [
+        'uses' => 'Admin\ContactMessageController@postMessageSearchResults',
+        'as' => 'admin.message.search'
+    ]);
+
+    Route::get('/message/delete/{id}', [
+        'uses' => 'Admin\ContactMessageController@getDeleteMessage',
+        'as' => 'admin.message.delete'
+    ]);
+
+    Route::get('/message/{messageId}', [
+        'uses' => 'Admin\ContactMessageController@getMessage',
+        'as' => 'admin.message'
     ]);
 });

@@ -19,15 +19,7 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ trans('general.users') }} <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ url('/admin/users') }}">{{ trans('header.userList') }}</a></li>
-                    </ul>
-                </li>
+                <li><a href="{{ url('/admin/users') }}">{{ trans('header.userList') }}</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -38,7 +30,20 @@
                         <li><a href="{{ url('/admin/exercises') }}">{{ trans('header.exercises') }}</a></li>
                         <li><a href="{{ url('/admin/exercise/add') }}">{{ trans('header.addExercise') }}</a></li>
                     </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ trans('header.news') }} <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/admin/articles') }}">{{ trans('header.news') }}</a></li>
+                        <li><a href="{{ url('/admin/article/add') }}">{{ trans('header.newsAdd') }}</a></li>
+                    </ul>
                 </li>   
+
+                <li><a href="{{ url('/admin/messages') }}">{{ trans('header.messages') }}</a></li> 
             </ul>
 
             <!-- Right Side Of Navbar -->

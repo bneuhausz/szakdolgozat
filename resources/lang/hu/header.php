@@ -3,8 +3,11 @@
 	return [
 		'adminPanel' => 'Admin Felület',
 		'userPanel' => 'Felhasználói Felület',
-		'userList' => 'Felhasználó Lista',
+		'userList' => 'Felhasználók',
 		'addExercise' => 'Gyakorlat Felvitel',
 		'exercises' => 'Gyakorlatok',
 		'contact' => 'Kapcsolat',
-    ];
+		'news' => 'Hírek',
+		'newsAdd' => 'Új Hír',
+		'messages' => 'Üzenetek',
+	];

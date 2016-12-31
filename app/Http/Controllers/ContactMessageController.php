@@ -28,7 +28,8 @@ class ContactMessageController extends Controller
         $message->subject = $request['subject'];
         $message->body = $request['message'];
         $message->save();
+
         Event::fire(new MessageSent($message));
-        return redirect()->route('contact')->with(['success' => 'Message successfully sent!']);
+        return redirect()->route('contact')->with(['success' => trans('email.mailSent')]);
     }
 }

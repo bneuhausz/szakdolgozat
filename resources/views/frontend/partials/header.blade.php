@@ -41,6 +41,7 @@
                                 @if (Auth::check() && Auth::user()->admin == true)
                                     <li><a href="{{ route('admin.index') }}">{{ trans('header.adminPanel') }}</a></li>
                                 @endif
+                                <li><a href="{{ route('profile') }}">{{ trans('user.profile') }}</a></li>
                                 <li>
                                     <a href="{{ url('/logout') }}"
                                         onclick="event.preventDefault();

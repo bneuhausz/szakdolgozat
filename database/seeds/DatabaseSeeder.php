@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ExerciseTableSeeder::class);
         $this->call(ExerciseTypeTableSeeder::class);
         $this->call(MuscleGroupsTableSeeder::class);
+        $this->call(ContactMessageTableSeeder::class);
+        $this->call(ArticleTableSeeder::class);
     }
 }
 
@@ -270,5 +272,69 @@ class UserTableSeeder extends Seeder
         $user->language = "hu";
         $user->admin = "0";
         $user->save();
+    }
+}
+
+class ArticleTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $article = new \App\Article();
+        $article->title_hu = "Article1_hu";
+        $article->title_en = "Article1_en";
+        $article->body_hu = "texttexttexttexttexttexttexttexttexttexttext_hu";
+        $article->body_en = "texttexttexttexttexttexttexttexttexttexttext_en";
+        $article->save();
+
+        $article = new \App\Article();
+        $article->title_hu = "Article2_hu";
+        $article->title_en = "Article2_en";
+        $article->body_hu = "texttexttexttexttexttexttexttexttexttexttext_hu";
+        $article->body_en = "texttexttexttexttexttexttexttexttexttexttext_en";
+        $article->save();
+
+        $article = new \App\Article();
+        $article->title_hu = "Article3_hu";
+        $article->title_en = "Article3_en";
+        $article->body_hu = "texttexttexttexttexttexttexttexttexttexttext_hu";
+        $article->body_en = "texttexttexttexttexttexttexttexttexttexttext_en";
+        $article->save();
+    }
+}
+
+class ContactMessageTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $contactMessage = new \App\ContactMessage();
+        $contactMessage->sender = "ContactMessage1";
+        $contactMessage->email = "asd@asd.com";
+        $contactMessage->subject = "ContactMessage1";
+        $contactMessage->body = "texttexttexttexttexttexttexttexttexttexttext";
+        $contactMessage->save();
+
+        $contactMessage = new \App\ContactMessage();
+        $contactMessage->sender = "ContactMessage2";
+        $contactMessage->email = "asd@asd.com";
+        $contactMessage->subject = "ContactMessage2";
+        $contactMessage->body = "asdsadsadtexttexttexttexttexttexttexttexttexttexttext";
+        $contactMessage->save();
+
+        $contactMessage = new \App\ContactMessage();
+        $contactMessage->sender = "ContactMessage3";
+        $contactMessage->email = "asd@asd.com";
+        $contactMessage->subject = "ContactMessage3";
+        $contactMessage->body = "texttexttexttexttexttsadsadsadsadexttexttexttexttexttextsad";
+        $contactMessage->save();
     }
 }

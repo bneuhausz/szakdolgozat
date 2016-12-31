@@ -1,47 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Exercise;
+use App\Http\Controllers\Controller;
 use Config;
 use App\MuscleGroup;
 use App\ExerciseType;
+use App\Exercise;
 
-class AdminController extends Controller
+class ExerciseController extends Controller
 {
-    public function getIndex(){
-        return view('admin.index');
-    }
-
-    public function getUsers(){
-        $users = User::orderBy('name')->paginate(5);
-
-        return view('admin.user.users', ['users' => $users]);
-    }
-
-    public function getUser($userId){
-        $user = User::find($userId);
-
-        if (!$user) {
-            return redirect()->back()->with(['fail' => 'User not found!']);
-        }
-
-        return view('admin.user.user', ['user' => $user]);
-    }
-
-    public function postUserSearchResults(Request $request){
-        $name = $request['name'];
-        $users = User::where('name', 'LIKE', '%'. $name .'%')->paginate(5);
-
-        if (count($users) < 1) {
-            return view('admin.user.userSearchResults', ['fail' => $name.' '.trans('general.notFound'), 'name' => $name]);
-        }
-
-        return view('admin.user.userSearchResults', ['users' => $users, 'name' => $name]);
-    }
-
     public function getExercises(){
         $locale = Config::get('app.locale');
         if ($locale == 'hu') {
