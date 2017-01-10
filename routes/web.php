@@ -40,14 +40,14 @@ Route::group([
         'as' => 'profile'
     ]);
 
-    Route::get('/picture/upload', [
-        'uses' => 'UserController@getUploadPicture',
-        'as' => 'picture.upload'
+    Route::get('/profile/edit', [
+        'uses' => 'UserController@getEditProfile',
+        'as' => 'profile.edit'
     ]);
 
-    Route::post('/picture/upload', [
-        'uses' => 'UserController@postUploadPicture',
-        'as' => 'picture.upload'
+    Route::post('/profile/edit', [
+        'uses' => 'UserController@postUpdateProfile',
+        'as' => 'profile.update'
     ]);
 
     Route::get('/picture/{filename}', [
@@ -130,7 +130,7 @@ Route::group([
     Route::get('/articles', [
         'uses' => 'Admin\ArticleController@getArticles',
         'as' => 'admin.articles'
-    ]); 
+    ]);
 
     Route::post('/articles/search', [
         'uses' => 'Admin\ArticleController@postArticleSearchResults',
@@ -170,7 +170,7 @@ Route::group([
     Route::get('/messages', [
         'uses' => 'Admin\ContactMessageController@getMessages',
         'as' => 'admin.messages'
-    ]); 
+    ]);
 
     Route::post('/messages/search', [
         'uses' => 'Admin\ContactMessageController@postMessageSearchResults',

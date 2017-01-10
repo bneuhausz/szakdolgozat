@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
+use Storage;
 
 class UserController extends Controller
 {
@@ -18,11 +19,21 @@ class UserController extends Controller
     public function getUser($userId){
         $user = User::find($userId);
 
+        if(Storage::disk('local')->has($user->name . '-' . $user->id . '.jpg')){
+    		$filename = $user->name . '-' . $user->id . '.jpg';
+    	}elseif (Storage::disk('local')->has($user->name . '-' . $user->id . '.jpeg')){
+    		$filename = $user->name . '-' . $user->id . '.jpeg';
+    	}elseif (Storage::disk('local')->has($user->name . '-' . $user->id . '.png')){
+    		$filename = $user->name . '-' . $user->id . '.png';
+    	}else{
+            $filename = "defaultProfile.jpg";
+        }
+
         if (!$user) {
             return redirect()->back()->with(['fail' => 'User not found!']);
         }
 
-        return view('admin.user.user', ['user' => $user]);
+        return view('admin.user.user', ['user' => $user, 'filename' => $filename]);
     }
 
     public function postUserSearchResults(Request $request){
@@ -44,7 +55,7 @@ class UserController extends Controller
 
             return redirect()->back();
         }
-        
+
         return view('admin.index');
     }
 
@@ -56,7 +67,7 @@ class UserController extends Controller
 
             return redirect()->back();
         }
-        
+
         return view('admin.index');
     }
 }

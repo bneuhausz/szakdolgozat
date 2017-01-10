@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{{ URL::to('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ URL::to('css/main.css') }}">
         <link rel="stylesheet" href="{{ URL::to('css/header.css') }}">
+        <link rel="stylesheet" href="{{ URL::to('css/footer.css') }}">
         @yield('styles')
         <script>
             window.Laravel = <?php echo json_encode([

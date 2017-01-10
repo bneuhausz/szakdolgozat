@@ -11,4 +11,13 @@
 		'makeAdmin' => 'Admin Jog Adás',
 		'loseAdmin' => 'Admin Jog Elvétele',
 		'uploadPicture' => 'Kép Feltöltés',
+		'editProfile' => 'Profil szerkesztése',
+		'registerDate' => 'Regisztrált',
+		'height' => 'Magasság',
+		'weight' => 'Súly',
+		'benchPress' => 'Fekvenyomás',
+		'squat' => 'Guggolás',
+		'deadlift' => 'Felhúzás',
+		'ohp' => 'Fejfölényomás',
+		'image' => 'Kép',
 ];

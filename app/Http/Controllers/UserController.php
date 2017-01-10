@@ -7,45 +7,63 @@ use Illuminate\Http\Response;
 use App\User;
 use Auth;
 use Storage;
-use File;
+use Image;
 
 class UserController extends Controller
 {
-    public function getProfile(){
-    	$user = Auth::user();
 
-    	return view('frontend.user.profile', ['user' => $user]);
-    }
-
-    public function getUploadPicture(){
-    	$user = Auth::user();
+    private function pictureCheck(){
+        $user = Auth::user();
 
     	if(Storage::disk('local')->has($user->name . '-' . $user->id . '.jpg')){
     		$filename = $user->name . '-' . $user->id . '.jpg';
+            return $filename;
     	}elseif (Storage::disk('local')->has($user->name . '-' . $user->id . '.jpeg')){
     		$filename = $user->name . '-' . $user->id . '.jpeg';
+            return $filename;
     	}elseif (Storage::disk('local')->has($user->name . '-' . $user->id . '.png')){
     		$filename = $user->name . '-' . $user->id . '.png';
+            return $filename;
     	}
 
-    	if (isset($filename)) {
-    		return view('frontend.user.uploadPicture', ['user' => $user, 'filename' => $filename]);
-    	}
-
-    	return view('frontend.user.uploadPicture', ['user' => $user]);
+        return "defaultProfile.jpg";
     }
 
-    public function postUploadPicture(Request $request){
-    	$this->validate($request, [
-    		'image' => 'required|image|mimes:jpeg,jpg,png|max:2048'
+    public function getProfile(){
+    	$user = Auth::user();
+        $filename = $this->pictureCheck();
+
+    	return view('frontend.user.profile', ['user' => $user, 'filename' => $filename]);
+    }
+
+    public function getEditProfile(){
+        $user = Auth::user();
+        $filename = $this->pictureCheck();
+
+        return view('frontend.user.editProfile', ['user' => $user, 'filename' => $filename]);
+    }
+
+    public function postUpdateProfile(Request $request){
+        $this->validate($request, [
+    		'image' => 'image|mimes:jpeg,jpg,png|max:2048'
     	]);
 
-    	$user = Auth::user();
-    	$file = $request->file('image');
-    	$extension = $request->image->getClientOriginalExtension();
-    	$filename = $user->name.'-'.$user->id.'.'.$extension;
+        $user = Auth::user();
+        $user->height = $request['height'];
+        $user->weight = $request['weight'];
+        $user->bench_1rm = $request['bench'];
+        $user->squat_1rm = $request['squat'];
+        $user->deadlift_1rm = $request['deadlift'];
+        $user->ohp_1rm = $request['ohp'];
+        $user->save();
 
-    	if ($file) {
+        $filename = $this->pictureCheck();
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+        	$extension = $request->image->getClientOriginalExtension();
+        	$filename = $user->name.'-'.$user->id.'.'.$extension;
+
             if(Storage::disk('local')->has($user->name . '-' . $user->id . '.jpg')){
                 $oldFilename = $user->name . '-' . $user->id . '.jpg';
                 Storage::disk('local')->delete($oldFilename);
@@ -57,10 +75,12 @@ class UserController extends Controller
                 Storage::disk('local')->delete($oldFilename);
             }
 
-    		Storage::disk('local')->put($filename, File::get($file));
-    	}
+            $resizedFile = Image::make($file)->resize(240,320);
 
-    	return redirect()->route('profile');
+    		Storage::disk('local')->put($filename, $resizedFile->stream());
+        }
+
+        return view('frontend.user.profile', ['user' => Auth::user(), 'filename' => $filename]);
     }
 
     public function getUserImage($filename){
