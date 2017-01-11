@@ -5,6 +5,5 @@
 @endsection
 
 @section('content')
-    ASDASDASD
-    <a href="#" class="btn btn-success">Default</a>
+    index
 @endsection

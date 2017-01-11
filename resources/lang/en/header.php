@@ -10,4 +10,5 @@
 		'news' => 'News',
 		'newsAdd' => 'Add News',
 		'messages' => 'Messages',
+		'donation' => 'Donatetion',
     ];

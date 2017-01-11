@@ -19,9 +19,8 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="#">asd</a></li>
                     <li><a href="{{ route('contact') }}">{{ trans('header.contact') }}</a></li>
-                    
+                    <li><a href="{{ route('donation') }}">{{ trans('header.donation') }}</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -36,7 +35,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
-                            
+
                             <ul class="dropdown-menu" role="menu">
                                 @if (Auth::check() && Auth::user()->admin == true)
                                     <li><a href="{{ route('admin.index') }}">{{ trans('header.adminPanel') }}</a></li>

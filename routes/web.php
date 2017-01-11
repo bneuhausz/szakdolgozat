@@ -27,6 +27,16 @@ Route::get('/contact', [
     'as' => 'contact'
 ]);
 
+Route::get('/donation', [
+    'uses' => 'DonationController@getDonationIndex',
+    'as' => 'donation'
+]);
+
+Route::post('/donation', [
+    'uses' => 'DonationController@postDonation',
+    'as' => 'donation'
+]);
+
 Route::post('/contact/sendmail', [
     'uses' => 'ContactMessageController@postSendMessage',
     'as' => 'contact.send'

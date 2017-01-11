@@ -20,4 +20,10 @@
 		'deadlift' => 'Deadlift',
 		'ohp' => 'Overhead Press',
 		'image' => 'Image',
+		'cardHolder' => 'Card Holder Name',
+		'cardNumber' => 'Card Number',
+		'expMonth' => 'Expiration Month',
+		'expYear' => 'Expiration Year',
+		'amount' => 'Amount',
+		'thanksForDonation' => 'Thank you for your donation!',
 ];

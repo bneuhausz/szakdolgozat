@@ -20,4 +20,10 @@
 		'deadlift' => 'Felhúzás',
 		'ohp' => 'Fejfölényomás',
 		'image' => 'Kép',
+		'cardHolder' => 'Kártya Tulajdonos Neve',
+		'cardNumber' => 'Kártyaszám',
+		'expMonth' => 'Lejárati Hónap',
+		'expYear' => 'Lejárati Év',
+		'amount' => 'Összeg',
+		'thanksForDonation' => 'Köszönjük a támogatást!',
 ];

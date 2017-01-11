@@ -10,4 +10,5 @@
 		'news' => 'Hírek',
 		'newsAdd' => 'Új Hír',
 		'messages' => 'Üzenetek',
+		'donation' => 'Támogatás',
 	];
