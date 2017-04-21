@@ -9,5 +9,7 @@ return [
     'female' => 'Female',
     'height' => 'Height',
     'weight' => 'Weight',
+    'calories' => 'calories',
+    'calorieResponse' => 'Your basal metabolic rate is',
 
 ];

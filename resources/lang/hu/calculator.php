@@ -9,5 +9,7 @@ return [
     'female' => 'Nő',
     'height' => 'Magasság',
     'weight' => 'Súly',
+    'calories' => 'kalória',
+    'calorieResponse' => 'Az alap szükségleted',
 
 ];
