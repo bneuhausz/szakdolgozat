@@ -11,4 +11,6 @@
 		'newsAdd' => 'Új Hír',
 		'messages' => 'Üzenetek',
 		'donation' => 'Támogatás',
+		'calculators' => 'Calculators',
+		'calorieNeedCalc' => 'Kalória szükséglet',
 	];

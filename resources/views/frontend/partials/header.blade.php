@@ -19,6 +19,15 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ trans('header.calculators') }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('calorieNeedCalc') }}">{{ trans('header.calorieNeedCalc') }}</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{ route('contact') }}">{{ trans('header.contact') }}</a></li>
                     <li><a href="{{ route('donation') }}">{{ trans('header.donation') }}</a></li>
                 </ul>

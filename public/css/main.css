@@ -1,3 +1,12 @@
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+body{
+    margin-bottom: 50px;
+}
+
 .pagination{
     display: inline-block;
     padding: 0;

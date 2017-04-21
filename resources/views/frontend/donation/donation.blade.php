@@ -14,7 +14,7 @@
             <div id="charge-error" class="alert alert-success {{ !Session::has('success') ? 'hidden' : '' }}">
                 {{ Session::get('success') }}
             </div>
-            <form action="{{ route('donation' )}}" method="post" id="checkout-form">
+            <form action="{{ route('donation' ) }}" method="post" id="checkout-form">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 {{ csrf_field() }}
-                <button type="submit" class="btn btn-primary">{{ trans('general.submit') }}</button>
+                <button type="submit" class="btn btn-primary center">{{ trans('general.submit') }}</button>
             </form>
         </div>
     </div>

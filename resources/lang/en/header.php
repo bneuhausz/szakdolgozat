@@ -10,5 +10,7 @@
 		'news' => 'News',
 		'newsAdd' => 'Add News',
 		'messages' => 'Messages',
-		'donation' => 'Donatetion',
+		'donation' => 'Donation',
+		'calculators' => 'Calculators',
+		'calorieNeedCalc' => 'Caloric Need',
     ];

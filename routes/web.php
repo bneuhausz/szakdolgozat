@@ -22,6 +22,16 @@ Route::post('/language', [
     'as' => 'language'
 ]);
 
+Route::get('/calorieneed', [
+    'uses' => 'CalculatorController@getCalorieNeed',
+    'as' => 'calorieNeedCalc'
+]);
+
+Route::post('/calorieneed', [
+    'uses' => 'CalculatorController@postCalorieNeed',
+    'as' => 'calculate.calorieneed'
+]);
+
 Route::get('/contact', [
     'uses' => 'ContactMessageController@getContactIndex',
     'as' => 'contact'

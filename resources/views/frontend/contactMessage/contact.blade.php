@@ -43,7 +43,7 @@
 
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-2">
-            <button type="submit" class="btn btn-primary">{{ trans('general.submit') }}</button>
+            <button type="submit" class="btn btn-primary pull-right">{{ trans('general.submit') }}</button>
           </div>
         </div>
 
