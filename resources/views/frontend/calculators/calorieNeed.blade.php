@@ -4,12 +4,19 @@
     Neuhausz Bálint Szakdolgozat
 @endsection
 
+@section('styles')
+    <link rel="stylesheet" href="{{ URL::to('css/calorieneed.css') }}">
+@endsection
+
 @section('content')
     @include('partials.info-box')
 
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
             <h1>{{ trans('calculator.calorieNeed') }}</h1>
+            <div class="" id="output">
+
+            </div>
             <form action="{{ route('calculate.calorieneed') }}" method="post" id="calorieneed-form">
                 <div class="row">
                     <div class="col-xs-12">
@@ -43,11 +50,11 @@
                 @if (Auth::check())
                     <div class="checkbox pull-left">
                         <label>
-                            <input type="checkbox" id="save"> {{ trans('calculator.save') }}
+                            <input type="checkbox" id="save"> {{ trans('calculator.saveBMR') }}
                         </label>
                     </div>
                 @endif
-                {{ csrf_field() }}
+                <input type="hidden" id = "token" name="_token" value="{{ Session::token() }}">
                 <button type="submit" class="btn btn-primary center">{{ trans('general.submit') }}</button>
             </form>
         </div>
