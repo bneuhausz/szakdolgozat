@@ -40,6 +40,13 @@
                         </div>
                     </div>
                 </div>
+                @if (Auth::check())
+                    <div class="checkbox pull-left">
+                        <label>
+                            <input type="checkbox" id="save"> {{ trans('calculator.save') }}
+                        </label>
+                    </div>
+                @endif
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-primary center">{{ trans('general.submit') }}</button>
             </form>

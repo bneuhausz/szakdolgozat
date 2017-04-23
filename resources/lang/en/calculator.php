@@ -9,5 +9,6 @@ return [
     'female' => 'Female',
     'height' => 'Height',
     'weight' => 'Weight',
+    'save' => 'Save BMR',
 
 ];

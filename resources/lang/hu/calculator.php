@@ -9,5 +9,6 @@ return [
     'female' => 'Nő',
     'height' => 'Magasság',
     'weight' => 'Súly',
+    'save' => 'BMR mentése',
 
 ];
