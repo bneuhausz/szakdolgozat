@@ -32,6 +32,11 @@ Route::post('/calorieneed', [
     'as' => 'calculate.calorieneed'
 ]);
 
+Route::get('/onerepmax', [
+    'uses' => 'CalculatorController@get1rm',
+    'as' => '1rmCalc'
+]);
+
 Route::get('/contact', [
     'uses' => 'ContactMessageController@getContactIndex',
     'as' => 'contact'

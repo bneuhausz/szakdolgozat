@@ -34,3 +34,58 @@ $bmrForm.submit(function(event) {
         $("#output").removeClass("hidden");
     }
 });
+
+function calc1rm(){
+    var weight = $('#weight').val();
+    var rep = $('#rep').val();
+    var percent = 0;
+
+    switch(rep){
+        case '2':
+            percent = 95;
+        break;
+        case '3':
+            percent = 93;
+        break;
+        case '4':
+            percent = 90;
+        break;
+        case '5':
+            percent = 87;
+        break;
+        case '6':
+            percent = 85;
+        break;
+        case '7':
+            percent = 83;
+        break;
+        case '8':
+            percent = 80;
+        break;
+        case '9':
+            percent = 77;
+        break;
+        case '10':
+            percent = 75;
+        break;
+        case '11':
+            percent = 73;
+        break;
+        case '12':
+            percent = 70;
+        break;
+        default:
+            percent = 100;
+        break;
+    }
+
+    $('#1rm').val(((weight*100)/percent).toFixed(2));
+}
+
+$('#weight').keyup(function(){
+    calc1rm();
+});
+
+$('#rep').change(function(){
+    calc1rm();
+});

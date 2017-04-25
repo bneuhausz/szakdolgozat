@@ -13,4 +13,5 @@
 		'donation' => 'Támogatás',
 		'calculators' => 'Calculators',
 		'calorieNeedCalc' => 'Kalória szükséglet',
+		'1rm' => '1 ismétléses max',
 	];

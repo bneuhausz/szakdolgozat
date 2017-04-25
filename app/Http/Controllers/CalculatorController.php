@@ -16,10 +16,9 @@ class CalculatorController extends Controller
         $user = Auth::user();
         $user->bmr = $request->input('bmr');
         $user->save();
-        /*
-            BMR
-            BMR = 10 * weight(kg) + 6.25 * height(cm) - 5 * age(y) + 5         (man)
-            BMR = 10 * weight(kg) + 6.25 * height(cm) - 5 * age(y) - 161     (woman)
-        */
+    }
+
+    public function get1rm(){
+        return view('frontend.calculators.1RM');
     }
 }
