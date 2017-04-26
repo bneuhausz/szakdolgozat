@@ -10,22 +10,22 @@
     @foreach ($musclegroups as $musclegroup)
         @if (Config::get('app.locale') == 'hu')
             <p>
-                <h1>{{ $musclegroup->name_hu }}</h1>
+                <h4>{{ $musclegroup->name_hu }}</h4>
                 <ul>
                     @foreach ($exercises as $exercise)
                         @if ($exercise->musclegroup_id == $musclegroup->id)
-                            <li>{{ $exercise->name_hu }}</li>
+                            <li><a href="#">{{ $exercise->name_hu }}</a></li>
                         @endif
                     @endforeach
                 </ul>
             </p>
         @else
             <p>
-                <h1>{{ $musclegroup->name_en }}</h1>
+                <h4>{{ $musclegroup->name_en }}</h4>
                 <ul>
                     @foreach ($exercises as $exercise)
                         @if ($exercise->musclegroup_id == $musclegroup->id)
-                            <li>{{ $exercise->name_en }}</li>
+                            <li><a href="#">{{ $exercise->name_en }}</a></li>
                         @endif
                     @endforeach
                 </ul>
