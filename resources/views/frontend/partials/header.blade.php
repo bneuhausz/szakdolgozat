@@ -29,6 +29,7 @@
                             <li><a href="{{ route('1rmCalc') }}">{{ trans('header.1rm') }}</a></li>
                         </ul>
                     </li>
+                    <li><a href="{{ route('exercises') }}">{{ trans('header.exercises') }}</a></li>
                     <li><a href="{{ route('contact') }}">{{ trans('header.contact') }}</a></li>
                     <li><a href="{{ route('donation') }}">{{ trans('header.donation') }}</a></li>
                 </ul>

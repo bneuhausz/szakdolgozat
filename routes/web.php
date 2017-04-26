@@ -57,6 +57,11 @@ Route::post('/contact/sendmail', [
     'as' => 'contact.send'
 ]);
 
+Route::get('/exercises', [
+    'uses' => 'ExerciseController@getExercises',
+    'as' => 'exercises'
+]);
+
 Route::group([
     'middleware' => 'auth'
 ], function(){
