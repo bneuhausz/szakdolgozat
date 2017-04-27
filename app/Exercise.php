@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Exercise extends Model
 {
     public function exerciseType(){
-        return $this->belongsTo('App\ExerciseType');
+        return $this->belongsTo('App\ExerciseType', 'exercisetype_id');
     }
 
     public function muscleGroup(){
-        return $this->belongsTo('App\MuscleGroup');
+        return $this->belongsTo('App\MuscleGroup', 'musclegroup_id');
     }
 }

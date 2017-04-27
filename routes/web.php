@@ -62,6 +62,11 @@ Route::get('/exercises', [
     'as' => 'exercises'
 ]);
 
+Route::get('/exercise/{exerciseID}', [
+    'uses' => 'ExerciseController@getExercise',
+    'as' => 'exercise'
+]);
+
 Route::group([
     'middleware' => 'auth'
 ], function(){

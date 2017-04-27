@@ -14,7 +14,7 @@
                 <ul>
                     @foreach ($exercises as $exercise)
                         @if ($exercise->musclegroup_id == $musclegroup->id)
-                            <li><a href="#">{{ $exercise->name_hu }}</a></li>
+                            <li><a href="{{ route('exercise', ['exerciseID' => $exercise->id]) }}">{{ $exercise->name_hu }}</a></li>
                         @endif
                     @endforeach
                 </ul>
@@ -25,7 +25,7 @@
                 <ul>
                     @foreach ($exercises as $exercise)
                         @if ($exercise->musclegroup_id == $musclegroup->id)
-                            <li><a href="#">{{ $exercise->name_en }}</a></li>
+                            <li><a href="{{ route('exercise', ['exerciseID' => $exercise->id]) }}">{{ $exercise->name_en }}</a></li>
                         @endif
                     @endforeach
                 </ul>
