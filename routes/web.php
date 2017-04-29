@@ -89,6 +89,11 @@ Route::group([
         'uses' => 'UserController@GetUserImage',
         'as' => 'profile.image'
     ]);
+
+    Route::get('/myExercises', [
+        'uses' => 'CustomExerciseController@getCustomExercises',
+        'as' => 'myExercises'
+    ]);
 });
 
 Auth::routes();

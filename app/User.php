@@ -39,4 +39,8 @@ class User extends Authenticatable
         $this->verificationToken = null;
         $this->save();
     }
+
+    public function customExercises(){
+        return $this->hasMany('App\CustomExercise');
+    }
 }

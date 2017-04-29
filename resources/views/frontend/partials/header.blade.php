@@ -29,7 +29,18 @@
                             <li><a href="{{ route('1rmCalc') }}">{{ trans('header.1rm') }}</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('exercises') }}">{{ trans('header.exercises') }}</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ trans('header.exercises') }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('exercises') }}">{{ trans('header.exercises') }}</a></li>
+                            @if (Auth::check())
+                                <li><a href="{{ route('myExercises') }}">{{ trans('header.myExercises') }}</a></li>
+                            @endif
+                        </ul>
+                    </li>
                     <li><a href="{{ route('contact') }}">{{ trans('header.contact') }}</a></li>
                     <li><a href="{{ route('donation') }}">{{ trans('header.donation') }}</a></li>
                 </ul>
