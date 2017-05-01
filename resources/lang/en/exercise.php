@@ -11,4 +11,5 @@
         'videoLink' => 'Video Link',
 				'addExercise' => 'Add Exercise',
 				'editExercise' => 'Edit Exercise',
+				'noCustomExercises' => 'You don\'t have any exercises added yet.',
 ];

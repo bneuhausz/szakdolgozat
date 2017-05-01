@@ -8,6 +8,9 @@ use App\User;
 use Auth;
 use Storage;
 use Image;
+use Illuminate\Support\Facades\Event;
+use App\Events\EmailChanged;
+use App\EmailChangeLog;
 
 class UserController extends Controller
 {
@@ -45,16 +48,21 @@ class UserController extends Controller
 
     public function postUpdateProfile(Request $request){
         $this->validate($request, [
-    		'image' => 'image|mimes:jpeg,jpg,png|max:2048'
+    		'image' => 'image|mimes:jpeg,jpg,png|max:2048',
+        'email' => 'email|max:255|unique:users',
     	]);
 
         $user = Auth::user();
-        $user->height = $request['height'];
-        $user->weight = $request['weight'];
-        $user->bench_1rm = $request['bench'];
-        $user->squat_1rm = $request['squat'];
-        $user->deadlift_1rm = $request['deadlift'];
-        $user->ohp_1rm = $request['ohp'];
+        if (($request['email'] != "") && ($request['email'] != $user->email)) {
+            Event::fire(new EmailChanged($user, $request['email']));
+        }
+
+        $user->height = $request['height'] != "" ? $request['height'] : 0;
+        $user->weight = $request['weight'] != "" ? $request['weight'] : 0;
+        $user->bench_1rm = $request['bench'] != "" ? $request['bench'] : 0;
+        $user->squat_1rm = $request['squat'] != "" ? $request['squat'] : 0;
+        $user->deadlift_1rm = $request['deadlift'] != "" ? $request['deadlift'] : 0;
+        $user->ohp_1rm = $request['ohp'] != "" ? $request['ohp'] : 0;
         $user->save();
 
         $filename = $this->pictureCheck();
@@ -80,6 +88,10 @@ class UserController extends Controller
     		Storage::disk('local')->put($filename, $resizedFile->stream());
         }
 
+        if (isset($request['email'])) {
+            return view('frontend.user.profile', ['user' => Auth::user(), 'filename' => $filename])->with(trans('email.emailChangeWarning'));
+        }
+
         return view('frontend.user.profile', ['user' => Auth::user(), 'filename' => $filename]);
     }
 
@@ -87,5 +99,22 @@ class UserController extends Controller
     	$file = Storage::disk('local')->get($filename);
 
     	return new Response($file, 200);
+    }
+
+    public function getEmailChange($confirmationToken){
+        $user = Auth::user();
+        $emailChange = EmailChangeLog::where('confirmationToken', $confirmationToken)->where('user_id', $user->id)->where('status', 'A')->first();
+
+        if ($emailChange) {
+            $user->email = $emailChange->new_email;
+            $user->save();
+
+            $emailChange->status = 'C';
+            $emailChange->save();
+
+            return view('frontend.index')->with(trans('emailChangeSuccessful'));
+        }
+
+        return view('frontend.index')->with(trans('emailChangeFailed'));
     }
 }

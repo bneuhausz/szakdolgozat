@@ -16,5 +16,13 @@ return [
     'response' => 'Köszönjük.',
     'newMessage' => 'Új üzenet érkezett!',
     'mailSent' => 'Sikeresen elküldve!',
+    'emailChange' => 'E-mail cím változás!',
+    'emailChangeWarning' => 'Küldtünk egy megerősítő linket az új címedre!',
+    'emailChangeTitle' => 'Erősítsd meg az új e-mail címedet!',
+    'emailChangeText1' => 'He te vátoztattad meg az e-mail címedet a következőre',
+    'emailChangeText2' => 'akkor kérlek kattints az alábbi linkre.',
+    'emailChangeSuccessful' => 'Az e-mail címedet sikeresen megváltoztattuk!',
+    'emailChangeFailed' => 'Az e-mail címed megváltoztatása nem sikerült!',
+    'confirmationWillBeSent' => 'Megerősítő emailt fogsz kapni a régi címedre, ha e-mailt változtatsz!',
 
 ];

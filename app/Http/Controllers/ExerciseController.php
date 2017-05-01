@@ -25,13 +25,10 @@ class ExerciseController extends Controller
 
     public function getExercise($exerciseID){
        $exercise = Exercise::find($exerciseID);
-        //$exercise = Exercise::where('id', $exerciseID)->with('muscleGroup')->with('exerciseType')->get();
 
         if (!$exercise) {
             return redirect()->back()->with(['fail' => 'Exercise not found!']);
         }
-
-        //echo $exercise->muscleGroup->name_hu;
 
         return view('frontend.exercise.exercise', ['exercise' => $exercise]);
     }

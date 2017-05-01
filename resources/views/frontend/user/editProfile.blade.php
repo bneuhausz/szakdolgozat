@@ -14,6 +14,13 @@
         </legend>
 
         <div class="form-group">
+          <label for="email" class="col-lg-2 control-label">{{ trans('user.email') }}</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" name="email" id="email" placeholder="{{ trans('email.confirmationWillBeSent') }}">
+          </div>
+        </div>
+
+        <div class="form-group">
           <label for="height" class="col-lg-2 control-label">{{ trans('user.height') }}(cm)</label>
           <div class="col-lg-10">
             <input type="number" class="form-control" name="height" id="height" value="{{ $user->height }}">
@@ -64,7 +71,7 @@
 
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-2">
-            <button type="reset" class="btn btn-danger">{{ trans('general.cancel') }}</button>
+            <button type="reset" class="btn btn-danger">{{ trans('general.clear') }}</button>
             <button type="submit" class="btn btn-primary">{{ trans('user.editProfile') }}</button>
           </div>
         </div>

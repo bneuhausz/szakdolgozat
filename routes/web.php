@@ -94,6 +94,16 @@ Route::group([
         'uses' => 'CustomExerciseController@getCustomExercises',
         'as' => 'myExercises'
     ]);
+
+    Route::post('/myExercises/add', [
+        'uses' => 'CustomExerciseController@postAddCustomExercise',
+        'as' => 'myExercises.add'
+    ]);
+
+    Route::get('emailChange/confirm/{confirmationToken}', [
+        'uses' => 'UserController@getEmailChange',
+        'as' => 'confirmEmailChange'
+    ]);
 });
 
 Auth::routes();

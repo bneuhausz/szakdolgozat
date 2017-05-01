@@ -17,6 +17,10 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\SendConfirmation',
             'App\Listeners\SendNotification',
         ],
+
+        'App\Events\EmailChanged' => [
+            'App\Listeners\CreateEmailChangeEntry',
+        ],
     ];
 
     /**

@@ -22,4 +22,6 @@
 		'edit' => 'Módosít',
 		'cancel' => 'Mégse',
 		'submit' => 'Küldés',
+		'clear' => 'Ürítés',
+
 ];

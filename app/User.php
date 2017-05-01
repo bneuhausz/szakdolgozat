@@ -43,4 +43,8 @@ class User extends Authenticatable
     public function customExercises(){
         return $this->hasMany('App\CustomExercise');
     }
+
+    public function emailChangeLogs(){
+        return $this->hasMany('App\EmailChangeLog');
+    }
 }

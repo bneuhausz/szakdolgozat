@@ -11,4 +11,5 @@
         'videoLink' => 'Videó Link',
 				'addExercise' => 'Gyakorlat Felvitel',
 				'editExercise' => 'Gyakorlat Módosítása',
+				'noCustomExercises' => 'Még nem hoztál létre saját gyakorlatot.',
 ];

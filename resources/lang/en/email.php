@@ -16,5 +16,13 @@ return [
     'response' => 'Thank You!',
     'newMessage' => 'A new message arrived!',
     'mailSent' => 'Mail successfully sent!',
+    'emailChange' => 'E-mail address changed!',
+    'emailChangeWarning' => 'We\'ve sent a confirmation link to your new e-mail address!',
+    'emailChangeTitle' => 'Confirm your new e-mail address!',
+    'emailChangeText1' => 'If you changed your e-mail address to',
+    'emailChangeText2' => 'then please click on the link below.',
+    'emailChangeSuccessful' => 'Your e-mail address has been successfully changed!',
+    'emailChangeFailed' => 'The e-mail address change failed!',
+    'confirmationWillBeSent' => 'You will get a confirmation e-mail to your old e-mail address if you change it!',
 
 ];
