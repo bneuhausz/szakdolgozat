@@ -18,7 +18,7 @@ class ExerciseTableSeeder extends Seeder
         $exercise->description_hu = "asdasdasdasdasdas";
         $exercise->musclegroup_id = "1";
         $exercise->exercisetype_id = "1";
-        $exercise->video = "link";
+        $exercise->video = "https://www.youtube.com/watch?v=4AObAU-EcYE&t=15s";
         $exercise->save();
 
         $exercise = new \App\Exercise();
@@ -28,7 +28,7 @@ class ExerciseTableSeeder extends Seeder
         $exercise->description_hu = "asdasdasdasdasdas";
         $exercise->musclegroup_id = "2";
         $exercise->exercisetype_id = "2";
-        $exercise->video = "link";
+        $exercise->video = "https://www.youtube.com/watch?v=zG2xJ0Q5QtI";
         $exercise->save();
 
         $exercise = new \App\Exercise();

@@ -67,6 +67,11 @@ Route::get('/exercise/{exerciseID}', [
     'as' => 'exercise'
 ]);
 
+Route::get('/programPicker', [
+    'uses' => 'ProgramController@getPrograms',
+    'as' => 'programPicker'
+]);
+
 Route::group([
     'middleware' => 'auth'
 ], function(){

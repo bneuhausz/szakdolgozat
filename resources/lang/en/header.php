@@ -15,4 +15,5 @@
 		'calorieNeedCalc' => 'Caloric Need',
 		'1rm' => '1 Rep Max',
 		'myExercises' => 'My Exercises',
+		'programPicker' => 'Program Picker',
     ];

@@ -41,6 +41,7 @@
                             @endif
                         </ul>
                     </li>
+                    <li><a href="{{ route('programPicker') }}">{{ trans('header.programPicker') }}</a></li>
                     <li><a href="{{ route('contact') }}">{{ trans('header.contact') }}</a></li>
                     <li><a href="{{ route('donation') }}">{{ trans('header.donation') }}</a></li>
                 </ul>

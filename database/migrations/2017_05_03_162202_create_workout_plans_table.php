@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmailChangeLogsTable extends Migration
+class CreateWorkoutPlansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateEmailChangeLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('email_change_logs', function (Blueprint $table) {
+        Schema::create('workout_plans', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->string('old_email');
-            $table->string('new_email');
-            $table->string('confirmationToken');
-            $table->enum('status', ['A', 'C'])->default('A');
+            $table->string('name');
+            $table->integer('num_of_days');
+            $table->enum('type', ['Hypertrophy', 'Strength']);
+            $table->enum('difficulty', ['Beginner', 'Advanced']);
+            $table->string('link');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateEmailChangeLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('email_change_logs');
+        Schema::dropIfExists('workout_plans');
     }
 }
