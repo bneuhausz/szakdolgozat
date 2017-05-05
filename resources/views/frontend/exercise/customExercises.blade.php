@@ -39,33 +39,35 @@
 
     <hr>
 
-    @forelse ($musclegroups as $musclegroup)
-        @if (Config::get('app.locale') == 'hu')
-            <p>
-                <h4>{{ $musclegroup->name_hu }}</h4>
-                <ul>
-                    @foreach ($exercises as $exercise)
-                        @if ($exercise->musclegroup_id == $musclegroup->id)
-                            <li>{{ $exercise->name }} | {{ $exercise->exerciseType->name_hu }}</li>
-                        @endif
-                    @endforeach
-                </ul>
-            </p>
-        @else
-            <p>
-                <h4>{{ $musclegroup->name_en }}</h4>
-                <ul>
-                    @foreach ($exercises as $exercise)
-                        @if ($exercise->musclegroup_id == $musclegroup->id)
-                            <li>{{ $exercise->name }} | {{ $exercise->exerciseType->name_en }}</li>
-                        @endif
-                    @endforeach
-                </ul>
-            </p>
-        @endif
-    @empty
-        <p>{{ trans('exercise.noCustomExercises') }}</p>
-    @endforelse
+    <div class="col-md-4 col-md-offset-4">
+        @forelse ($musclegroups as $musclegroup)
+            @if (Config::get('app.locale') == 'hu')
+                <p>
+                    <h4>{{ $musclegroup->name_hu }}</h4>
+                    <ul>
+                        @foreach ($exercises as $exercise)
+                            @if ($exercise->musclegroup_id == $musclegroup->id)
+                                <li>{{ $exercise->name }} | {{ $exercise->exerciseType->name_hu }}</li>
+                            @endif
+                        @endforeach
+                    </ul>
+                </p>
+            @else
+                <p>
+                    <h4>{{ $musclegroup->name_en }}</h4>
+                    <ul>
+                        @foreach ($exercises as $exercise)
+                            @if ($exercise->musclegroup_id == $musclegroup->id)
+                                <li>{{ $exercise->name }} | {{ $exercise->exerciseType->name_en }}</li>
+                            @endif
+                        @endforeach
+                    </ul>
+                </p>
+            @endif
+        @empty
+            <p>{{ trans('exercise.noCustomExercises') }}</p>
+        @endforelse
+    </div>
 @endsection
 
 @section('scripts')

@@ -72,6 +72,16 @@ Route::get('/programPicker', [
     'as' => 'programPicker'
 ]);
 
+Route::get('/programs/search', [
+    'uses' => 'ProgramController@postSearchPrograms',
+    'as' => 'programs.search'
+]);
+
+Route::get('/program/{programID}', [
+    'uses' => 'ProgramController@getProgram',
+    'as' => 'program'
+]);
+
 Route::group([
     'middleware' => 'auth'
 ], function(){

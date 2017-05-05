@@ -18,8 +18,9 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
             $table->string('title_hu');
             $table->string('title_en');
-            $table->text('body_hu');  
+            $table->text('body_hu');
             $table->text('body_en');
+            $table->enum('status', ['A', 'D'])->default('A');
         });
     }
 

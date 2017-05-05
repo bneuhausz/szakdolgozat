@@ -1,0 +1,14 @@
+#programBox{
+    font-size: 200%;
+}
+
+#programBox ul{
+    list-style-type: none;
+}
+
+#programBox li{
+    background-color: #e1e8e8;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+}

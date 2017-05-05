@@ -20,6 +20,7 @@ class CreateContactMessagesTable extends Migration
             $table->string('email');
             $table->string('subject');
             $table->text('body');
+            $table->enum('status', ['A', 'D'])->default('A');
         });
     }
 

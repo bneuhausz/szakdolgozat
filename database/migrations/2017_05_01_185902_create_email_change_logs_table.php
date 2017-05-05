@@ -19,7 +19,7 @@ class CreateEmailChangeLogsTable extends Migration
             $table->string('old_email');
             $table->string('new_email');
             $table->string('confirmationToken');
-            $table->enum('status', ['A', 'C'])->default('A');
+            $table->enum('status', ['A', 'D'])->default('A');
             $table->timestamps();
         });
     }

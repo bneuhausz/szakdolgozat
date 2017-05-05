@@ -2,6 +2,7 @@
 
 	return [
 		'name' => 'Név',
+		'user' => 'Felhasználó',
 		'email' => 'E-Mail Cím',
 		'password' => 'Jelszó',
 		'confirmPassword' => 'Jelszó Megerősítés',
