@@ -20,10 +20,5 @@ class ExerciseTypeTableSeeder extends Seeder
         $exerciseType->name_en = "Isolation";
         $exerciseType->name_hu = "Izolált";
         $exerciseType->save();
-
-        $exerciseType = new \App\ExerciseType();
-        $exerciseType->name_en = "Cardio";
-        $exerciseType->name_hu = "Kardió";
-        $exerciseType->save();
     }
 }
