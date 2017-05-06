@@ -16,4 +16,5 @@
 		'1rm' => '1 Rep Max',
 		'myExercises' => 'My Exercises',
 		'programPicker' => 'Program Picker',
+		'workoutLogger' => 'Workout Logger',
     ];

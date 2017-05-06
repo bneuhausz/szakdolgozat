@@ -19,6 +19,9 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
+                    @if (Auth::check())
+                        <li><a href="{{ route('workoutLogger') }}">{{ trans('header.workoutLogger') }}</a></li>
+                    @endif
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ trans('header.calculators') }} <span class="caret"></span>

@@ -119,6 +119,16 @@ Route::group([
         'uses' => 'UserController@getEmailChange',
         'as' => 'confirmEmailChange'
     ]);
+
+    Route::get('/addExerciseToWorkout', [
+        'uses' => 'WorkoutController@getAddExercise',
+        'as' => 'workout.add'
+    ]);
+
+    Route::get('/workoutLogger', [
+        'uses' => 'WorkoutController@getWorkoutLogger',
+        'as' => 'workoutLogger'
+    ]);
 });
 
 Auth::routes();
