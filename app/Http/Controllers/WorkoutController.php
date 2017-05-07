@@ -15,28 +15,37 @@ class WorkoutController extends Controller
     }
 
     public function getAddExercise(Request $request){
-        $exercise = Exercise::find($request['id']);
-        dd($request['id']);
+        $exercise_id = $request['id'];
+        $exercise = Exercise::find($exercise_id);
         $user = Auth::user();
         $date = $request['date'];
-        $weights = explode(',', $request['weights']);
-        $sets = $request['sets'];
-        $workoutDay = WorkoutDay::where('user_id', $user->id)->where('date', $date)->get();
-        //dd($workoutDay);
+        $date = date('Y-m-d');
+        $weights = $request['weights'];
+        $weights = explode(',', $weights);
+        $reps = $request['reps'];
+        $reps = explode(',', $reps);
+
+        $workoutDay = WorkoutDay::where('user_id', $user->id)->where('date', $date)->first();
+
         if (count($workoutDay) == 0) {
             $workout = new Workout(null);
             $workoutDay = new WorkoutDay();
         }else{
-            $workout = new Workout($workoutDay->exercises);
+            $exercises = unserialize($workoutDay->exercises);
+            dd($exercises);
+            $workout = new Workout($exercises);
         }
-        $workout->add($exercise->id, $weights, $sets);
+        //dd($workout);
+        //return view('frontend.workoutLogger.workoutLog', ['workout' => $workout]);
+        $workout->add($exercise->id, $weights, $reps);
+        //dd($workout);
 
         $workoutDay->user_id = $user->id;
         $workoutDay->date = $date;
         $workoutDay->exercises = serialize($workout);
         $workoutDay->save();
 
-        dd($workoutDay);
+        return view('frontend.workoutLogger.workoutLog', ['workout' => $workoutDay]);
 
         // TODO: return view, wire up routes, make views
     }

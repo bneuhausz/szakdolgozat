@@ -132,7 +132,7 @@ Lower the dumbbells back down slowly to the starting position as you inhale.
 Repeat for the recommended amount of repetitions.";
         $exercise->description_hu = "Ügyelj a kisujjadra! Mit jelent ez? A kisujjad a felső ponton legyen magasabban, mint a hüvelykujjad, mintha egy kannából akarnál vizet önteni. Ezzel az apró kis mozdulattal még több stimulációt tudsz az oldalsó deltaizmokra helyezni.
 
-Ezt a gyakorlatot többféle módon lehet végezni. Álló vagy pad szélén ülő helyzetben egyaránt hatásosan végezhető, a cél az oldalsó deltaizmok megterhelése. Ha már nagyon erőlködsz, próbálj meg előrehajolni, "bedőlni" a gyakorlatba, és nem hátrahajolni (mert úgy az amúgy is erős elülső deltaizmokat terheled). De ez nem azt jelenti, hogy előre-hátra kell ingáznod, ezzel elvész a gyakorlat lényege! A gyakorlatot végezheted váltott karral is, ha csak egyetlen súlyzó áll rendelkezésedre.";
+Ezt a gyakorlatot többféle módon lehet végezni. Álló vagy pad szélén ülő helyzetben egyaránt hatásosan végezhető, a cél az oldalsó deltaizmok megterhelése. Ha már nagyon erőlködsz, próbálj meg előrehajolni, 'bedőlni' a gyakorlatba, és nem hátrahajolni (mert úgy az amúgy is erős elülső deltaizmokat terheled). De ez nem azt jelenti, hogy előre-hátra kell ingáznod, ezzel elvész a gyakorlat lényege! A gyakorlatot végezheted váltott karral is, ha csak egyetlen súlyzó áll rendelkezésedre.";
         $exercise->musclegroup_id = "4";
         $exercise->exercisetype_id = "2";
         $exercise->video = "https://www.youtube.com/embed/3VcKaXpzqRo";

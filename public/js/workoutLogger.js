@@ -12,17 +12,20 @@ $('#addButton').click(function(){
 function teszt(){
     var date = $("#datePicker").val();
     var id = 1;
-    var weights = 10;
-    var sets = 3;
+    var weights = "10,10,10";
+    var reps = "12,12,12";
     $.ajax({
         headers: {
               'X-CSRF-Token': $('#token').val()
         },
         type: "GET",
         url: "./addExerciseToWorkout",
-        data: { date: date, id: id, sets: sets, weights: weights },
+        data: { date: date, id: id, reps: reps, weights: weights },
         success: function(response){
             alert(response);
-        }
+        },
+        error: function(data){
+                    alert(data);
+        },
     });
 }
