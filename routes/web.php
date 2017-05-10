@@ -125,9 +125,14 @@ Route::group([
         'as' => 'workout.add'
     ]);
 
-    Route::get('/workoutLogger', [
+    Route::get('/workoutLogger/{date?}', [
         'uses' => 'WorkoutController@getWorkoutLogger',
         'as' => 'workoutLogger'
+    ]);
+
+    Route::get('/showExercise', [
+       'uses' => 'WorkoutController@getShowExercise',
+       'as' => 'showExercise'
     ]);
 });
 

@@ -23,5 +23,6 @@
 		'cancel' => 'Mégse',
 		'submit' => 'Küldés',
 		'clear' => 'Ürítés',
+		'close' => 'Bezár',
 
 ];

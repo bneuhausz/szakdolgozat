@@ -87,3 +87,43 @@ body::after{
     margin-left: auto;
     margin-right: auto;
 }
+
+.card{
+    text-align: left;
+    float: left;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 2px #ccc;
+    width: 100%;
+    margin: 32px;
+}
+
+.card header{
+    text-align: left;
+    width: 100%;
+    padding: 8px;
+    border-bottom: 2px solid #ccc;
+    background-color: #eee;
+}
+
+.card section ul{
+    list-style: none;
+    padding: 0;
+    margin: 16px;
+}
+
+.card section li{
+    border: 1px solid #ccc;
+    margin: 8px 0;
+    padding: 8px;
+}
+
+header ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header li{
+    height: inherit;
+    display: inline-block;;
+}

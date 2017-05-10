@@ -23,5 +23,6 @@
 		'cancel' => 'Cancel',
 		'submit' => 'Submit',
 		'clear' => 'Clear',
+		'close' => 'Close',
 
 ];

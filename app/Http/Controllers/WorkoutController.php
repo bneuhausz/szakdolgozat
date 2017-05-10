@@ -10,8 +10,15 @@ use Auth;
 
 class WorkoutController extends Controller
 {
-    public function getWorkoutLogger(){
+    public function getWorkoutLogger($date = null){
+        if ($date == null) {
+            $date = date('Y-m-d');
+        }
         return view('frontend.workoutLogger.workoutLog');
+    }
+
+    public function getShowExercise(){
+
     }
 
     public function getAddExercise(Request $request){
@@ -32,13 +39,10 @@ class WorkoutController extends Controller
             $workoutDay = new WorkoutDay();
         }else{
             $exercises = unserialize($workoutDay->exercises);
-            dd($exercises);
             $workout = new Workout($exercises);
         }
-        //dd($workout);
-        //return view('frontend.workoutLogger.workoutLog', ['workout' => $workout]);
+
         $workout->add($exercise->id, $weights, $reps);
-        //dd($workout);
 
         $workoutDay->user_id = $user->id;
         $workoutDay->date = $date;
