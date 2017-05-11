@@ -23,9 +23,7 @@
                 <button class="btn btn-primary btn-sm center">Add Exercise</button>
             </div>
 
-            <div class="form-group">
-                <input id="datePicker" name="date" style="width:100%"/>
-            </div>
+
 
             <!-- dev.bneuhausz.com admin/index card+css -->
             <input type="hidden" id="id" name="id" value="3">
@@ -36,8 +34,14 @@
 
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-4">
         @include('frontend.partials.workoutSets')
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <input id="datePicker" name="date" style="width:100%"/>
+        </div>
     </div>
 
     <div class="modal" id="workoutInfo">
