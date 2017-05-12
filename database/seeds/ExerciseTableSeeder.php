@@ -155,20 +155,6 @@ A guggolás edzésterv összeállítása során mindig tartsd szem előtt, hogy 
         $exercise->save();
 
         $exercise = new \App\Exercise();
-        $exercise->name_en = "Lateral Raise";
-        $exercise->name_hu = "Álló vádligép";
-        $exercise->description_en = "Adjust the padded lever of the calf raise machine to fit your height.
-Place your shoulders under the pads provided and position your toes facing forward (or using any of the two other positions described at the beginning of the chapter). The balls of your feet should be secured on top of the calf block with the heels extending off it. Push the lever up by extending your hips and knees until your torso is standing erect. The knees should be kept with a slight bend; never locked. Toes should be facing forward, outwards or inwards as described at the beginning of the chapter. This will be your starting position.
-Raise your heels as you breathe out by extending your ankles as high as possible and flexing your calf. Ensure that the knee is kept stationary at all times. There should be no bending at any time. Hold the contracted position by a second before you start to go back down.
-Go back slowly to the starting position as you breathe in by lowering your heels as you bend the ankles until calves are stretched.
-Repeat for the recommended amount of repetitions.";
-        $exercise->description_hu = "Fontos, hogy a használt vádligép nagy súlyokkal legyen terhelhető. A gép legyen alkalmas nagy mennyiségű súly felrakására, vagy legyen emelős jellegű, amellyel viszonylag kis súlyok is nagy terhelést képesek előidézni. Ebből a gyakorlatból is mindig legalább 20 ismétlést végezz. Még koncentráltabb terhelést érhetsz el, ha a gyakorlatot váltott lábbal végzed.";
-        $exercise->musclegroup_id = "5";
-        $exercise->exercisetype_id = "2";
-        $exercise->video = "https://www.youtube.com/embed/YMmgqO8Jo-k";
-        $exercise->save();
-
-        $exercise = new \App\Exercise();
         $exercise->name_en = "Standing Calf Raises";
         $exercise->name_hu = "Álló vádligép";
         $exercise->description_en = "Adjust the padded lever of the calf raise machine to fit your height.

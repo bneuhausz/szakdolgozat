@@ -8,7 +8,7 @@
     @include('partials.info-box')
 
     <div class="row">
-        <div class="col-lg-10 col-lg-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             <input type="text" id ="exerciseName" name="exerciseName" placeholder="exercise">
 
             <select name="exerciseType" id="exerciseType">
@@ -39,12 +39,12 @@
 
     <hr>
 
-    <div class="col-md-4 col-md-offset-4">
+    <div class="col-md-2 col-md-offset-5">
         @forelse ($musclegroups as $musclegroup)
             @if (Config::get('app.locale') == 'hu')
                 <p>
                     <h4>{{ $musclegroup->name_hu }}</h4>
-                    <ul>
+                    <ul style="list-style:none;">
                         @foreach ($exercises as $exercise)
                             @if ($exercise->musclegroup_id == $musclegroup->id)
                                 <li>{{ $exercise->name }} | {{ $exercise->exerciseType->name_hu }}</li>
@@ -55,7 +55,7 @@
             @else
                 <p>
                     <h4>{{ $musclegroup->name_en }}</h4>
-                    <ul>
+                    <ul style="list-style:none;">
                         @foreach ($exercises as $exercise)
                             @if ($exercise->musclegroup_id == $musclegroup->id)
                                 <li>{{ $exercise->name }} | {{ $exercise->exerciseType->name_en }}</li>

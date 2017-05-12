@@ -1,94 +1,86 @@
 $(document).ready(function(){
     $("#datePicker").kendoDatePicker({
-        value: new Date(),
+        //value: new Date(),
         format: "yyyy-MM-dd"
     });
 
-    $('#addButton').click(function(){
-        teszt();
+    $("#datePicker").change(function(){
+        dateChange();
     });
 
+    $('#muscleGroupSelect').change(function(){
+        var muscleGroupId = $('#muscleGroupSelect').val();
 
-});
-
-/*$('.card').click(function(){
-    var background = document.createElement('div');
-    background.className = "modal-background";
-    var width = window.innerWidth;
-    var height = window.innerHeight;
-    background.style.width = width + "px";
-    background.style.height = height + "px";
-    document.body.appendChild(background);
-
-    var modal = document.getElementsByClassName('modal')[0];
-    modal.style.display = "block";
-    setTimeout(function(){
-        modal.style.top = height / 2 - modal.offsetHeight / 2 + "px";
-    }, 10);
-
-    $('#modal-close').click(function(){
-        var modal = document.getElementsByClassName('modal')[0];
-        while(modal.firstElementChild.tagName != 'BUTTON'){
-            modal.firstElementChild.remove();
-        }
-        modal.style.top = "10%";
-        modal.style.display = "none";
-        var background = document.getElementsByClassName('modal-background')[0];
-        background.remove();
+        $.ajax({
+            headers: {
+                  'X-CSRF-Token': $('#token').val()
+            },
+            type: "GET",
+            url: "./getExercisesByMuscleGroup",
+            data: { id: muscleGroupId },
+            success: function(response){
+                $('#exerciseSelects').html(response);
+                $('#exerciseSelects').removeClass("hidden");
+                $('#addExerciseButton').click(function(){
+                    addExercise();
+                });
+                $("#muscleGroupSelect option[value='0']").each(function() {
+                    $(this).remove();
+                });
+            },
+        });
     });
 });
 
-$('.card').click(function(){
-    //TODO: AJAX CALL WHICH RETURNS MODAL PARTIAL WITH DATA
-    $('#workoutInfo').html();
-});*/
-
-function teszt(){
+function dateChange(){
     var date = $("#datePicker").val();
-    var id = 1;
-    var weights = "10,10,10";
-    var reps = "12,12,12";
+
+    /*$.ajax({
+        headers: {
+              'X-CSRF-Token': $('#token').val()
+        },
+        type: "GET",
+        url: "./workoutLogger",
+        data: { date: date },
+        success: function(response){
+            $("#pageContainer").fadeOut(800, function(){
+                $("#pageContainer").html(response).fadeIn().delay(2000);
+            });
+        },
+    });*/
+    window.location = "./workoutLogger?date=" + date;
+}
+
+function addExercise(){
+    var date = $("#datePicker").val();
+    var exerciseId = $("#exerciseSelect").val();
+
+    var weights = "";
+    $("#" + exerciseId + " [name='weight']").each(function() {
+        weights = weights + $(this).val() + ",";
+    });
+    weights = weights + $("#kg").val();
+
+    var reps = "";
+    $("#" + exerciseId + " [name='rep']").each(function() {
+        reps = reps + $(this).val() + ",";
+    });
+    reps = reps + $("#db").val();
+
     $.ajax({
         headers: {
               'X-CSRF-Token': $('#token').val()
         },
         type: "GET",
         url: "./addExerciseToWorkout",
-        data: { date: date, id: id, reps: reps, weights: weights },
+        data: { date: date, id: exerciseId, reps: reps, weights: weights },
         success: function(response){
-            alert(response);
+            $("#workoutSets").fadeOut(800, function(){
+                $("#workoutSets").html(response).fadeIn().delay(2000);
+            });
         },
         error: function(data){
-                    alert(data);
+            alert(data);
         },
     });
 }
-
-/*function modalOpen(event){
-    event.preventDefault();
-    var background = document.createElement('div');
-    background.className = "modal-background";
-    var width = window.innerWidth;
-    var height = window.innerHeight;
-    background.style.width = width + "px";
-    background.style.height = height + "px";
-    document.body.appendChild(background);
-
-    var modal = document.getElementsByClassName('modal')[0];
-    modal.style.display = "block";
-    setTimeout(function(){
-        modal.style.top = height / 2 - modal.offsetHeight / 2 + "px";
-    }, 10);
-}
-
-function modalClose(event){
-    event.preventDefault();
-    var modal = document.getElementsByClassName('modal')[0];
-    while(modal.firstElementChild.tagName != 'BUTTON'){
-        modal.firstElementChild.remove();
-    }
-    modal.style.top = "10%";
-    modal.style.display = "none";
-    var background = document.getElementsByClassName('modal-background')[0];
-    background.remove();
-}*/

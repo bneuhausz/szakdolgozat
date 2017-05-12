@@ -13,9 +13,11 @@ class Workout
         }
     }
 
-    public function add($id, $weights, $reps){
+    public function add($id, $name, $weights, $reps){
         //$storedExercise['id'] = $id;
         for ($i=0;$i<count($reps);$i++) {
+            $storedExercise['id'] = $id;
+            $storedExercise['exerciseName'] = $name;
             $storedExercise['weights'][$i] = $weights[$i];
             $storedExercise['reps'][$i] = $reps[$i];
         }

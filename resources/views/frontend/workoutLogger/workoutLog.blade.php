@@ -10,39 +10,43 @@
 @endsection
 
 @section('content')
-    <div class="col-md-3" style="margin-top:32px;">
-        <form class="form-horizontal" action="{{ route('workout.add') }}" method="get">
+    <div id="pageContainer">
+        <div class="col-md-3" style="margin-top:32px;">
             <div class="form-group">
-                <select class="" name="" style="width:100%">
-                    <option value="">Benchasdasdasdasdasdasdsadasd</option>
-                    <option value="">Deadlift</option>
-                </select>
+                <input id="datePicker" name="date" value="{{ $date }}" style="width:100%;"/>
             </div>
-
-            <div class="form-group">
-                <button class="btn btn-primary btn-sm center">Add Exercise</button>
-            </div>
-
-            <!-- dev.bneuhausz.com admin/index card+css -->
-            <input type="hidden" id="id" name="id" value="3">
-            <input type="hidden" id="weights" name="weights" value="10,10">
-            <input type="hidden" id="reps" name="reps" value="12,12">
-            <input type="hidden" id="token" name="_token" value="{{ Session::token() }}">
-        </form>
-    </div>
-
-    <div class="col-md-6">
-        @include('frontend.partials.workoutSets')
-    </div>
-
-    <div class="col-md-3" style="margin-top:32px;">
-        <div class="form-group">
-            <input id="datePicker" name="date" style="width:100%;padding-left:25px;"/>
         </div>
-    </div>
 
-    <div class="modal" id="workoutInfo">
+        <div class="col-md-3" style="margin-top:32px;">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <select class="" name="muscleGroupSelect" id="muscleGroupSelect" style="width:100%;margin-bottom:10px;">
+                        @if (Config::get('app.locale') == 'hu')
+                            <option value="0">Please Choose</option>
+                            @foreach ($muscleGroups as $muscleGroup)
+                                <option value="{{ $muscleGroup->id }}">{{ $muscleGroup->name_hu }}</option>
+                            @endforeach
+                        @else
+                            @foreach ($muscleGroups as $muscleGroup)
+                                <option value="{{ $muscleGroup->id }}">{{ $muscleGroup->name_en }}</option>
+                            @endforeach
+                        @endif
+                    </select>
 
+                    <div id="exerciseSelects" class="hidden">
+                        @include('frontend.partials.exerciseSelects')
+                    </div>
+                </div>
+
+                <input type="hidden" id="token" name="_token" value="{{ Session::token() }}">
+            </form>
+        </div>
+
+        <div class="col-md-6" id="workoutSets">
+            @if (count($loggedExercises) > 0)
+                @include('frontend.partials.workoutSets')
+            @endif
+        </div>
     </div>
 @endsection
 
