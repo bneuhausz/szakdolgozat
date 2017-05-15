@@ -26,7 +26,6 @@
         @include('partials.footer')
         <script src="{{ URL::to('js/jquery-3.1.1.js') }}"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <!-- <script src="{{ URL::to('js/bootstrap.min.js') }}"></script> -->
         @yield('scripts')
     </body>
 </html>

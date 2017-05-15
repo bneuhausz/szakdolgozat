@@ -24,5 +24,5 @@
 		'submit' => 'Küldés',
 		'clear' => 'Ürítés',
 		'close' => 'Bezár',
-
+		'add' => 'Hozzáadás',
 ];

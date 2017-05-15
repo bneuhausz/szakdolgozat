@@ -12,4 +12,6 @@
 				'addExercise' => 'Gyakorlat Felvitel',
 				'editExercise' => 'Gyakorlat Módosítása',
 				'noCustomExercises' => 'Még nem hoztál létre saját gyakorlatot.',
+				'exercise' => 'Gyakorlat',
+				'exists' => 'Már létezik ilyen nevű gyakorlatod',
 ];

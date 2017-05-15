@@ -27,7 +27,7 @@ class ExerciseController extends Controller
        $exercise = Exercise::find($exerciseID);
 
         if (!$exercise) {
-            return redirect()->back()->with(['fail' => 'Exercise not found!']);
+            return redirect()->back()->with(['fail' => trans('exercise.exercise').' '.trans('general.notFound')]);
         }
 
         return view('frontend.exercise.exercise', ['exercise' => $exercise]);

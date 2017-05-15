@@ -11,22 +11,23 @@
 
 @section('content')
     <div id="pageContainer">
-        <div class="col-md-3" style="margin-top:32px;">
+        <div class="col-md-3 topMargin">
             <div class="form-group">
-                <input id="datePicker" name="date" value="{{ $date }}" style="width:100%;"/>
+                <input id="datePicker" name="date" value="{{ $date }}"/>
             </div>
         </div>
 
-        <div class="col-md-3" style="margin-top:32px;">
+        <div class="col-md-3 topMargin">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <select class="" name="muscleGroupSelect" id="muscleGroupSelect" style="width:100%;margin-bottom:10px;">
+                    <select class="" name="muscleGroupSelect" id="muscleGroupSelect">
                         @if (Config::get('app.locale') == 'hu')
-                            <option value="0">Please Choose</option>
+                            <option value="0">{{ trans('workoutPlans.pleaseChoose') }}</option>
                             @foreach ($muscleGroups as $muscleGroup)
                                 <option value="{{ $muscleGroup->id }}">{{ $muscleGroup->name_hu }}</option>
                             @endforeach
                         @else
+                            <option value="0">{{ trans('workoutPlans.pleaseChoose') }}</option>
                             @foreach ($muscleGroups as $muscleGroup)
                                 <option value="{{ $muscleGroup->id }}">{{ $muscleGroup->name_en }}</option>
                             @endforeach

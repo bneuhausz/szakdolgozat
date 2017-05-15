@@ -12,4 +12,6 @@
 				'addExercise' => 'Add Exercise',
 				'editExercise' => 'Edit Exercise',
 				'noCustomExercises' => 'You don\'t have any exercises added yet.',
+				'exercise' => 'Exercise',
+				'exists' => 'You have an exercise with this name already.',
 ];

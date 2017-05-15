@@ -1,4 +1,4 @@
-<select name="exerciseSelect" id="exerciseSelect" style="width:100%;margin-bottom:10px;">
+<select name="exerciseSelect" id="exerciseSelect">
     @if (Config::get('app.locale') == 'hu')
         @foreach ($exercises as $exercise)
             <option value="{{ $exercise->id }}">{{ $exercise->name_hu }}</option>
@@ -14,12 +14,11 @@
 </select>
 
 <br>
-<input placeholder="kg" id="kg" type="number" name="weights" style="width:100%;margin-bottom:10px;">
-<input placeholder="db" id="db" type="number" name="reps" style="width:100%;margin-bottom:10px;">
+<input placeholder="kg" id="kg" type="number" name="weights">
+<input placeholder="db" id="db" type="number" name="reps">
 
 <div class="form-group">
-    <a href="#" id="addExerciseButton" class="btn btn-primary btn-xs center" style="width:50%;">Add Exercise</a>
-    <!--<button type="submit" id="addExerciseButton" class="btn btn-primary btn-sm center">Add Exercise</button>-->
+    <a href="#" id="addExerciseButton" class="btn btn-primary btn-xs center">{{ trans('general.add') }}</a>
 </div>
 
-<span class="hidden" id="setError"><b>please set db</b></span>
+<span class="hidden" id="setError"><b>{{ trans('workoutPlans.setDB') }}</b></span>

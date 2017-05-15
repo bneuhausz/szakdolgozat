@@ -30,7 +30,7 @@ class UserController extends Controller
         }
 
         if (!$user) {
-            return redirect()->back()->with(['fail' => trans('user.user').' '.trans('general.notFound')]);;
+            return redirect()->back()->with(['fail' => trans('user.user').' '.trans('general.notFound')]);
         }
 
         return view('admin.user.user', ['user' => $user, 'filename' => $filename]);

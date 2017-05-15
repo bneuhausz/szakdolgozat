@@ -48,7 +48,7 @@ class ProgramController extends Controller
         $program = WorkoutPlan::find($programID);
 
         if (!$program) {
-            return redirect()->back()->with(['fail' => 'Exercise not found!']);
+            return redirect()->back()->with(['fail' => trans('workoutPlans.program').' '.trans('general.notFound')]);
         }
 
         return view('frontend.program.program', ['program' => $program]);

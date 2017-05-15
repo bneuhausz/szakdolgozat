@@ -22,6 +22,10 @@ body::after{
     z-index: -1;
 }
 
+ul{
+    list-style:none;
+}
+
 .pagination{
     display: inline-block;
     padding: 0;
@@ -125,5 +129,27 @@ header ul{
 
 header li{
     height: inherit;
-    display: inline-block;;
+    display: inline-block;
+}
+
+#exerciseSelect, #kg, #db{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#addExerciseButton{
+    width: 50%;
+}
+
+.readonlyInput{
+    width: 40%;
+}
+
+.topMargin{
+    margin-top: 32px;
+}
+
+#muscleGroupSelect{
+    width: 100%;
+    margin-bottom: 10px;
 }

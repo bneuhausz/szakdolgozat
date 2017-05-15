@@ -24,5 +24,5 @@
 		'submit' => 'Submit',
 		'clear' => 'Clear',
 		'close' => 'Close',
-
+		'add' => 'Add',
 ];

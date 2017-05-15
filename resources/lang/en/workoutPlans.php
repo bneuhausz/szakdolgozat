@@ -9,4 +9,9 @@
         'Advanced' => 'Advanced',
         'all' => 'All',
         'program' => 'program',
+        'setDB' => 'Amount of reps must be greater than 0',
+        'deleteSet' => 'Delete',
+        'deleteExercise' => 'Delete Exercise',
+        'noExercisesAdded' => 'No exercises added yet',
+        'pleaseChoose' =>'Please Choose',
     ];

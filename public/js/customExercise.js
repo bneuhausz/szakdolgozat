@@ -1,16 +1,19 @@
 $(document).ready(function(){
     $("#addButton").click(function (){
         var exerciseName = $("#exerciseName").val();
-
         var existingNames = $(".existingExercise");
+        var match = false;
 
         $(existingNames).each(function(){
             if (exerciseName == $(this).html()) {
                 $("#error").removeClass("hidden");
+                match = true;
             }
         });
 
-        return;
+        if(match == true){
+            return;
+        }
 
         var exerciseType = $("#exerciseType").val();
         var musclegroup = $("#musclegroup").val();

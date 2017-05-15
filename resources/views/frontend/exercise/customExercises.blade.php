@@ -37,13 +37,13 @@
 
     <hr>
 
-    <span id="error" class="hidden">Already exists</span>
-
     <div class="col-md-4 col-md-offset-4">
+        <span id="error" class="hidden"><b>{{ trans('exercise.exists') }}</b><br></span>
+
         @forelse ($musclegroups as $musclegroup)
             @if (Config::get('app.locale') == 'hu')
                 <p>
-                    <ul style="list-style:none;">
+                    <ul>
                         @foreach ($exercises as $exercise)
                             @if ($exercise->musclegroup_id == $musclegroup->id)
                                 <li id="{{ $exercise->id }}"><b><span class="existingExercise">{{ $exercise->name }}</span></b> | {{ $exercise->exerciseType->name_hu }} | {{ $exercise->muscleGroup->name_hu }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">delete</a></li>
@@ -54,7 +54,7 @@
                 </p>
             @else
                 <p>
-                    <ul style="list-style:none;">
+                    <ul>
                         @foreach ($exercises as $exercise)
                             @if ($exercise->musclegroup_id == $musclegroup->id)
                                 <li id="{{ $exercise->id }}"><b><span class="existingExercise">{{ $exercise->name }}</span></b> | {{ $exercise->exerciseType->name_en }} | {{ $exercise->muscleGroup->name_en }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">delete</a></li>
