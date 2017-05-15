@@ -8,5 +8,5 @@
         'beginner' => 'Kezdő',
         'advanced' => 'Haladó',
         'all' => 'Mind',
-
+        'program' => 'program',
     ];

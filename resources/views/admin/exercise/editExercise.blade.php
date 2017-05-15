@@ -5,8 +5,6 @@
 @endsection
 
 @section('content')
-    @include('partials.info-box')
-
     <form action="{{ route('admin.exercise.update') }}" method="post" class="form-horizontal">
       <fieldset>
         <legend>

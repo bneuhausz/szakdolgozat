@@ -8,5 +8,5 @@
         'Beginner' => 'Beginner',
         'Advanced' => 'Advanced',
         'all' => 'All',
-
+        'program' => 'program',
     ];

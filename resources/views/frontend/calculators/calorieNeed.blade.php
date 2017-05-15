@@ -9,8 +9,6 @@
 @endsection
 
 @section('content')
-    @include('partials.info-box')
-
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
             <h1>{{ trans('calculator.calorieNeed') }}</h1>

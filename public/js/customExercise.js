@@ -1,6 +1,17 @@
 $(document).ready(function(){
     $("#addButton").click(function (){
         var exerciseName = $("#exerciseName").val();
+
+        var existingNames = $(".existingExercise");
+
+        $(existingNames).each(function(){
+            if (exerciseName == $(this).html()) {
+                $("#error").removeClass("hidden");
+            }
+        });
+
+        return;
+
         var exerciseType = $("#exerciseType").val();
         var musclegroup = $("#musclegroup").val();
 
@@ -21,8 +32,6 @@ $(document).ready(function(){
         console.log("asd");
         var id = $(this).closest("li").attr("id");
 
-        alert(id);
-
         $.ajax({
             headers: {
                 'X-CSRF-Token': $('#token').val()
@@ -31,7 +40,6 @@ $(document).ready(function(){
             url: "./myExercises/delete",
             data: { id: id },
             success: function(response){
-                alert(response);
                 location.reload();
             }
         });

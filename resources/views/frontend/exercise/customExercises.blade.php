@@ -5,8 +5,6 @@
 @endsection
 
 @section('content')
-    @include('partials.info-box')
-
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <input type="text" id ="exerciseName" name="exerciseName" placeholder="exercise">
@@ -39,6 +37,8 @@
 
     <hr>
 
+    <span id="error" class="hidden">Already exists</span>
+
     <div class="col-md-4 col-md-offset-4">
         @forelse ($musclegroups as $musclegroup)
             @if (Config::get('app.locale') == 'hu')
@@ -46,7 +46,8 @@
                     <ul style="list-style:none;">
                         @foreach ($exercises as $exercise)
                             @if ($exercise->musclegroup_id == $musclegroup->id)
-                                <li id="{{ $exercise->id }}"><b>{{ $exercise->name }}</b> | {{ $exercise->exerciseType->name_hu }} | {{ $exercise->muscleGroup->name_hu }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">delete</a></li>
+                                <li id="{{ $exercise->id }}"><b><span class="existingExercise">{{ $exercise->name }}</span></b> | {{ $exercise->exerciseType->name_hu }} | {{ $exercise->muscleGroup->name_hu }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">delete</a></li>
+                                <br>
                             @endif
                         @endforeach
                     </ul>
@@ -56,7 +57,8 @@
                     <ul style="list-style:none;">
                         @foreach ($exercises as $exercise)
                             @if ($exercise->musclegroup_id == $musclegroup->id)
-                                <li id="{{ $exercise->id }}"><b>{{ $exercise->name }}</b> | {{ $exercise->exerciseType->name_en }} | {{ $exercise->muscleGroup->name_en }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">delete</a></li>
+                                <li id="{{ $exercise->id }}"><b><span class="existingExercise">{{ $exercise->name }}</span></b> | {{ $exercise->exerciseType->name_en }} | {{ $exercise->muscleGroup->name_en }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">delete</a></li>
+                                <br>
                             @endif
                         @endforeach
                     </ul>

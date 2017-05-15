@@ -30,7 +30,7 @@ class CustomExerciseController extends Controller
 
     public function postAddCustomExercise(Request $request){
         $user = Auth::user();
-
+        
         $locale = Config::get('app.locale');
         if ($locale == 'hu') {
             $musclegroup = MuscleGroup::where('name_hu', $request['musclegroup'])->first();
