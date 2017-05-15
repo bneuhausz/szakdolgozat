@@ -5,8 +5,6 @@
 @endsection
 
 @section('content')
-    @include('partials.info-box')
-
     <form action="{{ route('profile.update') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
       <fieldset>
         <legend>

@@ -36,6 +36,11 @@ class ProgramController extends Controller
         }
 
         $programs = $programs->get();
+
+        if (!$programs) {
+            return redirect()->back()->with(['fail' => trans('workoutPlans.program').' '.trans('general.notFound')]);
+        }
+
         return view('frontend.program.partials.programList', ['programs' => $programs]);
     }
 

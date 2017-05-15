@@ -5,8 +5,6 @@
 @endsection
 
 @section('content')
-    @include('partials.info-box')
-
     <div class="col-md-4 col-md-offset-4">
         @foreach ($musclegroups as $musclegroup)
             @if (Config::get('app.locale') == 'hu')

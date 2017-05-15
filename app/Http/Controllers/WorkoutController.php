@@ -38,7 +38,6 @@ class WorkoutController extends Controller
 
     public function getAddExercise(Request $request){
         $exercise_id = $request['id'];
-        //$exercise_id = 8;
         if(strpos($exercise_id, "c") === false){
             $exercise = Exercise::find($exercise_id);
             $locale = Config::get('app.locale');
