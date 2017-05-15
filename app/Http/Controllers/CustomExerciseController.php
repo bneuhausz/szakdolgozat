@@ -29,7 +29,6 @@ class CustomExerciseController extends Controller
     }
 
     public function postAddCustomExercise(Request $request){
-
         $user = Auth::user();
 
         $locale = Config::get('app.locale');
@@ -48,7 +47,19 @@ class CustomExerciseController extends Controller
         $exercise->user_id = $user->id;
         $exercise->save();
 
-        $exercises = CustomExercise::where('user_id', $user->id)->orderBy('name')->get();
+        $exercises = CustomExercise::where('user_id', $user->id)->orderBy('musclegroup_id')->orderBy('name')->get();
+
+        return $exercises;
+    }
+
+    public function postDeleteCustomExercise(Request $request){
+        $user = Auth::user();
+        $cstExerciseId = $request["id"];
+
+        $exercise = $user->customExercises->find($cstExerciseId);
+        $exercise->delete();
+
+        $exercises = CustomExercise::where('user_id', $user->id)->orderBy('musclegroup_id')->orderBy('name')->get();
 
         return $exercises;
     }

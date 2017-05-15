@@ -14,20 +14,22 @@ class Workout
     }
 
     public function add($id, $name, $weights, $reps){
-        //$storedExercise['id'] = $id;
+        $count = 0;
+        $storedExercise['id'] = $id;
+        $storedExercise['exerciseName'] = $name;
         for ($i=0;$i<count($reps);$i++) {
-            $storedExercise['id'] = $id;
-            $storedExercise['exerciseName'] = $name;
-            $storedExercise['weights'][$i] = $weights[$i];
-            $storedExercise['reps'][$i] = $reps[$i];
-        }
-        /*if ($this->exercises) {
-            if (array_key_exists($id, $this->exercises)) {
-                $storedExercise[$id] = $this->exercises[$id];
-                //dd($storedExercise);
+            if($reps[$i] != ""){
+                $storedExercise['weights'][$count] = $weights[$i];
+                $storedExercise['reps'][$count] = $reps[$i];
+                $count++;
             }
-        }*/
+        }
+        if (!array_key_exists('reps', $storedExercise)) {
+            unset($this->exercises[$id]);
+        }else{
+            $this->exercises[$id] = $storedExercise;
+        }
+
         //dd($this->exercises);
-        $this->exercises[$id] = $storedExercise;
     }
 }

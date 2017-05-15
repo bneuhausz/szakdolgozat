@@ -39,26 +39,24 @@
 
     <hr>
 
-    <div class="col-md-2 col-md-offset-5">
+    <div class="col-md-4 col-md-offset-4">
         @forelse ($musclegroups as $musclegroup)
             @if (Config::get('app.locale') == 'hu')
                 <p>
-                    <h4>{{ $musclegroup->name_hu }}</h4>
                     <ul style="list-style:none;">
                         @foreach ($exercises as $exercise)
                             @if ($exercise->musclegroup_id == $musclegroup->id)
-                                <li>{{ $exercise->name }} | {{ $exercise->exerciseType->name_hu }}</li>
+                                <li id="{{ $exercise->id }}"><b>{{ $exercise->name }}</b> | {{ $exercise->exerciseType->name_hu }} | {{ $exercise->muscleGroup->name_hu }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">delete</a></li>
                             @endif
                         @endforeach
                     </ul>
                 </p>
             @else
                 <p>
-                    <h4>{{ $musclegroup->name_en }}</h4>
                     <ul style="list-style:none;">
                         @foreach ($exercises as $exercise)
                             @if ($exercise->musclegroup_id == $musclegroup->id)
-                                <li>{{ $exercise->name }} | {{ $exercise->exerciseType->name_en }}</li>
+                                <li id="{{ $exercise->id }}"><b>{{ $exercise->name }}</b> | {{ $exercise->exerciseType->name_en }} | {{ $exercise->muscleGroup->name_en }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">delete</a></li>
                             @endif
                         @endforeach
                     </ul>

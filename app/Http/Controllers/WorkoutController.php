@@ -15,18 +15,12 @@ class WorkoutController extends Controller
 {
     public function getWorkoutLogger(Request $request){
         $user = Auth::user();
-
         $date = $request['date'] ? $request['date'] : $date = date('Y-m-d');
-        /*if ($date == null) {
-            $date = date('Y-m-d');
-        }*/
-
         $workoutDay = WorkoutDay::where('user_id', $user->id)->where('date', $date)->first();
         $loggedExercises = array();
         if (count($workoutDay) > 0) {
             $loggedExercises = unserialize($workoutDay->exercises);
         }
-        //dd($loggedExercises);
         $muscleGroups = MuscleGroup::get();
         $exercises = Exercise::get();
         $customExercises = CustomExercise::where('user_id', $user->id)->get();
@@ -37,14 +31,14 @@ class WorkoutController extends Controller
     public function getExercisesByMuscleGroup(Request $request){
         $id = $request['id'];
         $exercises = Exercise::where('musclegroup_id', $id)->get();
-        //dd($exercises);
-        //$customExercises = CustomExercise::where('user_id', $user->id)->where('musclegroup_id', $id)->get();
         $customExercises = Auth::user()->customExercises()->where('musclegroup_id', $id)->get();
+
         return view('frontend.partials.exerciseSelects', ['exercises' => $exercises, 'customExercises' => $customExercises]);
     }
 
     public function getAddExercise(Request $request){
         $exercise_id = $request['id'];
+        //$exercise_id = 8;
         if(strpos($exercise_id, "c") === false){
             $exercise = Exercise::find($exercise_id);
             $locale = Config::get('app.locale');
@@ -68,23 +62,26 @@ class WorkoutController extends Controller
 
         $workoutDay = WorkoutDay::where('user_id', $user->id)->where('date', $date)->first();
 
-        if (count($workoutDay) == 0) {
-            $workout = new Workout(null);
-            $workoutDay = new WorkoutDay();
+        if ($reps == "") {
+            $workout = "";
+            $workoutDay->delete();
         }else{
-            $exercises = unserialize($workoutDay->exercises);
-            $workout = new Workout($exercises);
+            if (count($workoutDay) == 0) {
+                $workout = new Workout(null);
+                $workoutDay = new WorkoutDay();
+            }else{
+                $exercises = unserialize($workoutDay->exercises);
+                $workout = new Workout($exercises);
+            }
+
+            $workout->add($exercise_id, $exerciseName, $weights, $reps);
+
+            $workoutDay->user_id = $user->id;
+            $workoutDay->date = $date;
+            $workoutDay->exercises = serialize($workout);
+            $workoutDay->save();
         }
 
-        $workout->add($exercise_id, $exerciseName, $weights, $reps);
-
-        $workoutDay->user_id = $user->id;
-        $workoutDay->date = $date;
-        $workoutDay->exercises = serialize($workout);
-        $workoutDay->save();
-        //return view('frontend.partials.workoutSets', ['loggedExercises' => unserialize($workoutDay->exercises)]);
         return view('frontend.partials.workoutSets', ['loggedExercises' => $workout]);
-
-        // TODO: return view, wire up routes, make views
     }
 }

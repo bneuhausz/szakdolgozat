@@ -115,6 +115,12 @@ Route::group([
         'as' => 'myExercises.add'
     ]);
 
+    Route::post('/myExercises/delete', [
+        'uses' => 'CustomExerciseController@postDeleteCustomExercise',
+        'as' => 'myExercises.delete'
+    ]);
+
+
     Route::get('emailChange/confirm/{confirmationToken}', [
         'uses' => 'UserController@getEmailChange',
         'as' => 'confirmEmailChange'

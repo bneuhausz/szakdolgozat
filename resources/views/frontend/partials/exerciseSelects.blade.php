@@ -21,3 +21,5 @@
     <a href="#" id="addExerciseButton" class="btn btn-primary btn-xs center" style="width:50%;">Add Exercise</a>
     <!--<button type="submit" id="addExerciseButton" class="btn btn-primary btn-sm center">Add Exercise</button>-->
 </div>
+
+<span class="hidden" id="setError"><b>please set db</b></span>
