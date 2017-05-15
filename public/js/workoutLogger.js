@@ -8,7 +8,7 @@ $(document).ready(function(){
     });
 
     $(".deleteExerciseBtn").click(function(){
-        deleteExercise(this);
+        deleteExerciseFromDOM(this);
     });
 
     $(".deleteSetBtn").click(function(){
@@ -79,7 +79,7 @@ function addExercise(eID){
                     deleteSet(this);
                 });
                 $(".deleteExerciseBtn").click(function(){
-                    deleteExercise(this);
+                    deleteExerciseFromDOM(this);
                 });
             });
         },
@@ -117,7 +117,7 @@ function deleteExercise(eID){
                     deleteSet(this);
                 });
                 $(".deleteExerciseBtn").click(function(){
-                    deleteExercise(this);
+                    deleteExerciseFromDOM(this);
                 });
             });
         },
@@ -146,7 +146,7 @@ function deleteFullExercise(eID){
                     deleteSet(this);
                 });
                 $(".deleteExerciseBtn").click(function(){
-                    deleteExercise(this);
+                    deleteExerciseFromDOM(this);
                 });
             });
         },
@@ -169,7 +169,7 @@ function deleteSet(sender){
     deleteExercise(id);
 }
 
-function deleteExercise(sender){
+function deleteExerciseFromDOM(sender){
     var id = $(sender).closest(".card").attr("id");
     $(sender).closest(".card").remove();
     deleteFullExercise(id);
