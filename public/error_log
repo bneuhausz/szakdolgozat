@@ -1,0 +1,1 @@
+[01-May-2017 21:06:48 UTC] PHP Fatal error:  Cannot use App\EmailChangeLog as EmailChangeLog because the name is already in use in /home/fvgxzrrr/szd.bneuhausz.com/app/Http/Controllers/UserController.php on line 14
