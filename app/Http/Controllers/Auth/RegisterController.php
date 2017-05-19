@@ -87,7 +87,6 @@ class RegisterController extends Controller
     public function confirmEmail($verificationToken){
         User::where('verificationToken', $verificationToken)->firstOrFail()->hasVerified();
 
-
         return redirect('login')->with('status', trans('user.emailConfirmed'));
     }
 }

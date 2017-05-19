@@ -11,7 +11,7 @@
 		'newsAdd' => 'Új Hír',
 		'messages' => 'Üzenetek',
 		'donation' => 'Támogatás',
-		'calculators' => 'Calculators',
+		'calculators' => 'Kalkulátorok',
 		'calorieNeedCalc' => 'Kalória szükséglet',
 		'1rm' => '1 ismétléses max',
 		'myExercises' => 'Saját Gyakorlataim',

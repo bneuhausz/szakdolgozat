@@ -22,6 +22,11 @@ Route::post('/language', [
     'as' => 'language'
 ]);
 
+Route::get('/register/confirm/{verificationToken}', [
+    'uses' => 'Auth\RegisterController@confirmEmail',
+    'as' => 'register.confirm'
+]);
+
 Route::get('/calorieneed', [
     'uses' => 'CalculatorController@getCalorieNeed',
     'as' => 'calorieNeedCalc'

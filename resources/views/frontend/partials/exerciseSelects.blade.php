@@ -9,7 +9,7 @@
         @endforeach
     @endif
     @foreach ($customExercises as $customExercise)
-        <option value="c{{ $customExercise->id }}">{{ $customExercise->name }}</option>
+        <option value="c{{ $customExercise->id }}">(*){{ $customExercise->name }}</option>
     @endforeach
 </select>
 

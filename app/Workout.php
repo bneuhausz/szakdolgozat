@@ -8,7 +8,6 @@ class Workout
 
     public function __construct($oldWorkout){
         if(!empty($oldWorkout)){
-            //dd($oldWorkout);
             $this->exercises = $oldWorkout->exercises;
         }
     }
@@ -29,7 +28,5 @@ class Workout
         }else{
             $this->exercises[$id] = $storedExercise;
         }
-
-        //dd($this->exercises);
     }
 }
