@@ -27,4 +27,5 @@
 		'expYear' => 'Lejárati Év',
 		'amount' => 'Összeg',
 		'thanksForDonation' => 'Köszönjük a támogatást!',
+		'bmr' => 'BMR',
 ];

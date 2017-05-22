@@ -15,7 +15,6 @@
     <body>
         @include('admin.partials.header')
         <div class="container">
-            @include('partials.info-box')
             @yield('content')
         </div>
         @include('partials.footer')

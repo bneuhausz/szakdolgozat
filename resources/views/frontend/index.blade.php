@@ -9,6 +9,8 @@
 @endsection
 
 @section('content')
+    @include('partials.info-box')
+
     <div class="articles col-md-8 col-md-offset-2">
         @foreach ($articles as $article)
             <article>

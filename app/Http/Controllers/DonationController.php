@@ -35,7 +35,7 @@ class DonationController extends Controller
             $donation->save();
 
         }catch(\Exception $e){
-            return redirect()->route('donation')->with('error', $e->getMessage());
+            return redirect()->route('donation')->with('fail', $e->getMessage());
         }
 
         return redirect()->route('donation')->with('success', trans('user.thanksForDonation'));

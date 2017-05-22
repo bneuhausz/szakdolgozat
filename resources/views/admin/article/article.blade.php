@@ -5,12 +5,14 @@
 @endsection
 
 @section('content')
+    @include('partials.info-box')
+
     @if (Config::get('app.locale') == 'hu')
     	<h1>{{ $article->title_hu }}</h1>
-    	<p>{{ $article->body_hu }}</p>                       
+    	<p>{{ $article->body_hu }}</p>
     @elseif (Config::get('app.locale') == 'en')
         <h1>{{ $article->title_en }}</h1>
-    	<p>{{ $article->body_en }}</p>                       
+    	<p>{{ $article->body_en }}</p>
     @endif
 
     <hr>

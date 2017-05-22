@@ -33,10 +33,10 @@ class UserController extends Controller
     }
 
     public function getProfile(){
-    	$user = Auth::user();
+    	  $user = Auth::user();
         $filename = $this->pictureCheck();
 
-    	return view('frontend.user.profile', ['user' => $user, 'filename' => $filename]);
+    	  return view('frontend.user.profile', ['user' => $user, 'filename' => $filename]);
     }
 
     public function getEditProfile(){
@@ -47,10 +47,10 @@ class UserController extends Controller
     }
 
     public function postUpdateProfile(Request $request){
-        $this->validate($request, [
-    		'image' => 'image|mimes:jpeg,jpg,png|max:2048',
-        'email' => 'email|max:255|unique:users',
-    	]);
+          $this->validate($request, [
+      		'image' => 'image|mimes:jpeg,jpg,png|max:2048',
+          'email' => 'email|max:255|unique:users',
+      	]);
 
         $user = Auth::user();
         if (($request['email'] != "") && ($request['email'] != $user->email)) {
@@ -69,8 +69,8 @@ class UserController extends Controller
 
         if ($request->file('image')) {
             $file = $request->file('image');
-        	$extension = $request->image->getClientOriginalExtension();
-        	$filename = $user->name.'-'.$user->id.'.'.$extension;
+          	$extension = $request->image->getClientOriginalExtension();
+          	$filename = $user->name.'-'.$user->id.'.'.$extension;
 
             if(Storage::disk('local')->has($user->name . '-' . $user->id . '.jpg')){
                 $oldFilename = $user->name . '-' . $user->id . '.jpg';
@@ -85,7 +85,7 @@ class UserController extends Controller
 
             $resizedFile = Image::make($file)->resize(240,320);
 
-    		Storage::disk('local')->put($filename, $resizedFile->stream());
+    		    Storage::disk('local')->put($filename, $resizedFile->stream());
         }
 
         if (isset($request['email'])) {
@@ -104,17 +104,20 @@ class UserController extends Controller
     public function getEmailChange($confirmationToken){
         $user = Auth::user();
         $emailChange = EmailChangeLog::where('confirmationToken', $confirmationToken)->where('user_id', $user->id)->where('status', 'A')->first();
+        $filename = $this->pictureCheck();
 
         if ($emailChange) {
             $user->email = $emailChange->new_email;
             $user->save();
 
-            $emailChange->status = 'C';
+            $emailChange->status = 'D';
             $emailChange->save();
 
-            return view('frontend.index')->with(trans('emailChangeSuccessful'));
+
+
+        	  return view('frontend.user.profile', ['user' => $user, 'filename' => $filename])->with(trans('emailChangeSuccessful'));
         }
 
-        return view('frontend.index')->with(trans('emailChangeFailed'));
+        return view('frontend.user.profile', ['user' => $user, 'filename' => $filename])->with(trans('emailChangeFailed'));
     }
 }

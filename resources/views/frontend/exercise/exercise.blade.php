@@ -9,6 +9,8 @@
 @endsection
 
 @section('content')
+    @include('partials.info-box')
+
     <div class="col-md-8 col-md-offset-2">
         @if (Config::get('app.locale') == 'hu')
             <h2>

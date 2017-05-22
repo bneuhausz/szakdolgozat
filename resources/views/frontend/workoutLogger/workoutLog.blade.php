@@ -10,6 +10,8 @@
 @endsection
 
 @section('content')
+    @include('partials.info-box')
+
     <div id="pageContainer">
         <div class="col-md-3 topMargin">
             <div class="form-group">

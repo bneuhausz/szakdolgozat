@@ -9,6 +9,8 @@
 @endsection
 
 @section('content')
+    @include('partials.info-box')
+
         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
               <div class="panel panel-info">
@@ -40,6 +42,11 @@
                           <tr>
                             <td>{{ trans('user.weight') }}</td>
                             <td>{{ $user->weight }}</td>
+                          </tr>
+
+                          <tr>
+                            <td>{{ trans('user.bmr') }}</td>
+                            <td>{{ $user->bmr }}</td>
                           </tr>
 
                           <tr>

@@ -3,8 +3,6 @@ $("#searchButton").click(function (){
     var type = $("#type").val();
     var numOfDays = $("#numOfDays").val() != "" ? $("#numOfDays").val() : "0";
 
-    //alert(numOfDays + " " +type + " " + difficulty);
-
     $.ajax({
         headers: {
             'X-CSRF-Token': $('#token').val()

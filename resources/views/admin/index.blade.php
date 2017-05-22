@@ -9,6 +9,8 @@
 @endsection
 
 @section('content')
+    @include('partials.info-box')
+
     <div id="newsBox">
         <div class="col-md-6">
             <h1>

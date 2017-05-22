@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+    @include('partials.info-box')
+
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <input type="text" id ="exerciseName" name="exerciseName" placeholder="exercise">
@@ -46,7 +48,7 @@
                     <ul>
                         @foreach ($exercises as $exercise)
                             @if ($exercise->musclegroup_id == $musclegroup->id)
-                                <li id="{{ $exercise->id }}"><b><span class="existingExercise">{{ $exercise->name }}</span></b> | {{ $exercise->exerciseType->name_hu }} | {{ $exercise->muscleGroup->name_hu }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">delete</a></li>
+                                <li id="{{ $exercise->id }}"><b><span class="existingExercise">{{ $exercise->name }}</span></b> | {{ $exercise->exerciseType->name_hu }} | {{ $exercise->muscleGroup->name_hu }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">{{ trans('general.delete') }}</a></li>
                                 <br>
                             @endif
                         @endforeach
@@ -57,7 +59,7 @@
                     <ul>
                         @foreach ($exercises as $exercise)
                             @if ($exercise->musclegroup_id == $musclegroup->id)
-                                <li id="{{ $exercise->id }}"><b><span class="existingExercise">{{ $exercise->name }}</span></b> | {{ $exercise->exerciseType->name_en }} | {{ $exercise->muscleGroup->name_en }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">delete</a></li>
+                                <li id="{{ $exercise->id }}"><b><span class="existingExercise">{{ $exercise->name }}</span></b> | {{ $exercise->exerciseType->name_en }} | {{ $exercise->muscleGroup->name_en }} <a href="#" class="btn btn-danger btn-xs cstExerciseDeleteBtn">{{ trans('general.delete') }}</a></li>
                                 <br>
                             @endif
                         @endforeach

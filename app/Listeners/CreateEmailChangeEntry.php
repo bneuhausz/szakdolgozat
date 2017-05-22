@@ -33,7 +33,7 @@ class CreateEmailChangeEntry
 
         $exists = EmailChangeLog::where('user_id', $user->id)->where('status', 'A')->first();
         if (!is_null($exists)) {
-            $exists->status = 'C';
+            $exists->status = 'D';
             $exists->save();
         }
 

@@ -27,4 +27,5 @@
 		'expYear' => 'Expiration Year',
 		'amount' => 'Amount',
 		'thanksForDonation' => 'Thank you for your donation!',
+		'bmr' => 'BMR',
 ];

@@ -9,7 +9,9 @@
 @endsection
 
 @section('content')
-	<div class="col-md-6 col-md-offset-3">
+    @include('partials.info-box')
+
+	  <div class="col-md-6 col-md-offset-3">
         <h1>
             {{ trans('header.messages') }}
         </h1>

@@ -9,6 +9,8 @@
 @endsection
 
 @section('content')
+    @include('partials.info-box')
+
     <div id="searchBar" class="col-md-10 col-md-offset-1">
             <form class="form-inline">
                 <div class="form-group">

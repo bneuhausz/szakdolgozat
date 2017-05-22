@@ -73,8 +73,8 @@ function addExercise(eID){
         url: "./addExerciseToWorkout",
         data: { date: date, id: exerciseId, reps: reps, weights: weights },
         success: function(response){
-            $("#workoutSets").fadeOut(800, function(){
-                $("#workoutSets").html(response).fadeIn().delay(2000);
+            $("#workoutSets").fadeOut(400, function(){
+                $("#workoutSets").html(response).fadeIn().delay(1000);
                 $(".deleteSetBtn").click(function(){
                     deleteSet(this);
                 });
@@ -111,8 +111,8 @@ function deleteExercise(eID){
         url: "./addExerciseToWorkout",
         data: { date: date, id: exerciseId, reps: reps, weights: weights },
         success: function(response){
-            $("#workoutSets").fadeOut(800, function(){
-                $("#workoutSets").html(response).fadeIn().delay(2000);
+            $("#workoutSets").fadeOut(400, function(){
+                $("#workoutSets").html(response).fadeIn().delay(1000);
                 $(".deleteSetBtn").click(function(){
                     deleteSet(this);
                 });
@@ -140,8 +140,8 @@ function deleteFullExercise(eID){
         url: "./addExerciseToWorkout",
         data: { date: date, id: exerciseId, reps: reps, weights: weights },
         success: function(response){
-            $("#workoutSets").fadeOut(800, function(){
-                $("#workoutSets").html(response).fadeIn().delay(2000);
+            $("#workoutSets").fadeOut(400, function(){
+                $("#workoutSets").html(response).fadeIn().delay(1000);
                 $(".deleteSetBtn").click(function(){
                     deleteSet(this);
                 });

@@ -10,8 +10,8 @@ use App\Article;
 class AdminController extends Controller
 {
     public function getIndex(){
-        $articles = Article::orderBy('created_at', 'desc')->paginate(5);
-        $messages = ContactMessage::orderBy('created_at', 'desc')->paginate(5);
+        $articles = Article::where('status', 'A')->orderBy('created_at', 'desc')->paginate(5);
+        $messages = ContactMessage::where('status', 'A')->orderBy('created_at', 'desc')->paginate(5);
 
         return view('admin.index', ['articles' => $articles, 'messages' => $messages]);
     }

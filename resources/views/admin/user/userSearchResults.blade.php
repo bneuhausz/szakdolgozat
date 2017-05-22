@@ -9,6 +9,8 @@
 @endsection
 
 @section('content')
+    @include('partials.info-box')
+
     <div class="col-md-6 col-md-offset-3">
         <div id="searchBox">
             <form action="{{ route('admin.user.search') }}" method="post">

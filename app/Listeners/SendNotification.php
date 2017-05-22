@@ -30,7 +30,7 @@ class SendNotification
         $contact_message = $event->message;
         Mail::send('emails.contact.notification', ['contact_message' => $contact_message], function($m) use ($contact_message){
             $m->from('info@bneuhausz.com', 'bneuhausz.com');
-            $m->to('admin@bneuhausz.com', 'bneuhausz');
+            $m->to('info@bneuhausz.com', 'bneuhausz');
             $m->subject(trans('email.newMessage') .' '. $contact_message->email);
         });
     }
